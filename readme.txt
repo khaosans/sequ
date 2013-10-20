@@ -5,4 +5,3 @@ This is part of my CS300 class at Portland State University with Proffessor Mass
 It will be implemented in multiple phases that will be used in practice for real industry application.  
 
 
-git origin = "orig"
