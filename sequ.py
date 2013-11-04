@@ -68,6 +68,7 @@ def buildFloatSeq(beg,end):
 	while begining <= ending:
 		print begining
 		begining += 1
+	return
 
 #From Stackoverflow how to test with python if str variable contains int float
 def typeOfValue(text):
@@ -85,28 +86,101 @@ def typeOfValue(text):
 	
 	return str
 
+def buildFloatSepSeq(beg,end,character):
+	begining = float(beg)
+	ending = float(end)
+	if begining > ending:
+		return
+	elif begining == ending:
+		print begining
+		return
+	else:		
+		tempString = ''
+		while begining<=ending-1:
+			tempString += str(begining)
+			tempString += character
+			begining +=1
+		tempString +=str(begining)
+		print tempString
+		return
+	
+def buildIntSepSeq(beg,end, character):
+
+	begining = int(beg)
+	ending = int(end)
+	if begining > ending:
+		return
+	elif begining == ending:
+		print begining
+		return
+	else:		
+		tempString = ''
+		while begining<=ending-1:
+			tempString += str(begining)
+			tempString += character
+			begining +=1
+		tempString +=str(begining)
+		print tempString
+		return
+
+	
+
 # Main part of the program exist below this point	
 def main():
+
 	if len(sys.argv) == 4:
 		if str(sys.argv[1]) == '--equal-width' or str(sys.argv[1])=='-ew': 
 			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
 				buildFloatSeqPad(sys.argv[2],sys.argv[3])
-				return
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3])==int:
 				buildSeqPad(sys.argv[2],sys.argv[3])
-				return
 			elif typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==int:
 				buildFloatSeqPad(sys.argv[2],sys.argv[3])
-				return
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
 				buildFloatSeqPad(sys.argv[2],sys.argv[3])
-				return
 			else:
 				#status code error
 				print 'status code 1'
-				return	
-		
+				return
+		elif sys.argv[1].startswith('--separator'):
+			separator = '--separator'
+			sepLen = separator.__len__()
+			sepString = sys.argv[1]
+			sepChar = sepString[sepLen:]
+			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
+				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3])==int:
+				buildIntSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			elif typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==int:
+				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
+				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			else:
+				#status code error
+				print 'status code 1'
+				return
+					
+		elif sys.argv[1].startswith('-s'):
+			separator = '-s'
+			sepLen = separator.__len__()
+			sepString = sys.argv[1]
+			sepChar = sepString[sepLen:]
+			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
+				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3])==int:
+				buildIntSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			elif typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==int:
+				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
+				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+			else:
+				#status code error
+				print 'status code 1'
+				return
 
+		else:
+			print 'status code 1'
+			return
 	#Check to see if there are exactly two arguments on 
 	elif len(sys.argv) == 3:	
 		beg = sys.argv[1]
