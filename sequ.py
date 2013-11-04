@@ -20,8 +20,8 @@ def buildSequence(beg,end):
 	return
 
 #function builds the sequence of numbers but pads with zero's
-#as defined in implementation 1
-def buildSequencePad(beg, end):
+#as defined in implementation 1 for integers
+def buildSeqPad(beg, end):
 	begLength = beg.__len__()
 	endLength = end.__len__()
 
@@ -29,7 +29,7 @@ def buildSequencePad(beg, end):
 		maxLength = begLength
 	else:
 		maxLength = endLength
-	
+
 	begining = int(beg)
 	ending = int(end)+1
 
@@ -39,6 +39,28 @@ def buildSequencePad(beg, end):
 		
 	return
 
+#function builds the sequence for floating point numbers and pads
+#the values with 0
+def buildFloatSeqPad(beg, end):
+	begLength = beg.__len__()
+	endLength = end.__len__()
+
+	if begLength >= endLength:
+		maxLength = begLength
+	else:
+		maxLength = endLength
+
+	begining = float(beg)
+	ending = float(end)
+
+	while begining <= ending:
+		stringToPrint = str(begining)
+		print stringToPrint.rjust(maxLength,'0')
+		begining += 1
+		
+	return
+
+#Prints the sequence of numbers for floating Point Numbers
 def buildFloatSeq(beg,end):
 	begining = float(beg)
 	ending = float(end)
@@ -46,6 +68,7 @@ def buildFloatSeq(beg,end):
 	while begining <= ending:
 		print begining
 		begining += 1
+
 #From Stackoverflow how to test with python if str variable contains int float
 def typeOfValue(text):
 	try:
@@ -61,12 +84,31 @@ def typeOfValue(text):
 		pass
 	
 	return str
-	
+
+# Main part of the program exist below this point	
 def main():
-	 
+	if len(sys.argv) == 4:
+		if str(sys.argv[1]) == '--equal-width' or str(sys.argv[1])=='-ew': 
+			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
+				buildFloatSeqPad(sys.argv[2],sys.argv[3])
+				return
+			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3])==int:
+				buildSeqPad(sys.argv[2],sys.argv[3])
+				return
+			elif typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==int:
+				buildFloatSeqPad(sys.argv[2],sys.argv[3])
+				return
+			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
+				buildFloatSeqPad(sys.argv[2],sys.argv[3])
+				return
+			else:
+				#status code error
+				print 'status code 1'
+				return	
+		
 
 	#Check to see if there are exactly two arguments on 
-	if len(sys.argv) == 3:	
+	elif len(sys.argv) == 3:	
 		beg = sys.argv[1]
 		end = sys.argv[2]
 		#Checks for the test cases of input
