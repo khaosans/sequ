@@ -12,12 +12,18 @@ import sys;
 #in sequential order
 def buildSequence(beg,end):
 	#Converts the strings it integers
-	begining = int(beg)
-	ending = int(end)+1
+	begining = convertNum(beg)
+	ending = convertNum(end)+1
 	#Prints those numbers
 	for i in range(begining,ending):
 		print i
 	return
+
+def convertNum(number):
+	try:
+		return int(number)
+	except ValueError:
+		return float(number)
 
 #function builds the sequence of numbers but pads with zero's
 #as defined in implementation 1 for integers
@@ -31,11 +37,11 @@ def buildSeqPad(beg, end):
 		maxLength = endLength
 
 	begining = int(beg)
-	ending = int(end)+1
+	ending = int(end)
 
-	for i in range(begining,ending):
+	for i in range(begining,ending+1):
 		stringToPrint = str(i)
-		print stringToPrint.rjust(maxLength,'0')
+		print stringToPrint.zfill(maxLength)
 		
 	return
 
@@ -55,15 +61,15 @@ def buildFloatSeqPad(beg, end):
 
 	while begining <= ending:
 		stringToPrint = str(begining)
-		print stringToPrint.rjust(maxLength,'0')
+		print stringToPrint.zfill(maxLength)
 		begining += 1
 		
 	return
 
 #Prints the sequence of numbers for floating Point Numbers
 def buildFloatSeq(beg,end):
-	begining = float(beg)
-	ending = float(end)
+	begining = convertNum(beg)
+	ending = convertNum(end)
 	
 	while begining <= ending:
 		print begining
@@ -86,9 +92,10 @@ def typeOfValue(text):
 	
 	return str
 
-def buildFloatSepSeq(beg,end,character):
-	begining = float(beg)
-	ending = float(end)
+#Used for pritinting the seperator function
+def buildSepSeq(beg,end,character):
+	begining = convertNum(beg)
+	ending = convertNum(end)
 	if begining > ending:
 		return
 	elif begining == ending:
@@ -104,32 +111,29 @@ def buildFloatSepSeq(beg,end,character):
 		print tempString
 		return
 	
-def buildIntSepSeq(beg,end, character):
+def buildFormatSeq(beg, end, inString, increment):
+	begining = convertNum(beg)
+	ending = convertNum(end)
 
-	begining = int(beg)
-	ending = int(end)
-	if begining > ending:
-		return
-	elif begining == ending:
-		print begining
-		return
-	else:		
-		tempString = ''
-		while begining<=ending-1:
-			tempString += str(begining)
-			tempString += character
-			begining +=1
-		tempString +=str(begining)
-		print tempString
-		return
-
+	while begining<=ending:
+		print (inString  %  begining)
+		begining+=increment
+	return
+	
 	
 
 # Main part of the program exist below this point	
 def main():
+	if sys.argv[1]=='-f' or sys.argv[1]=='--format':
+		if len(sys.argv) == 4 and typeOfValue(sys.argv[3])==int or typeOfValue(sys.argv[3])==float:
+			buildFormatSeq(1,sys.argv[3],sys.argv[2],1)
 
-	if len(sys.argv) == 4:
-		if str(sys.argv[1]) == '--equal-width' or str(sys.argv[1])=='-ew': 
+		else:
+			print 'status code 1'
+			return
+
+	elif len(sys.argv) == 4:
+		if str(sys.argv[1]) == '--equal-width' or str(sys.argv[1])=='-w': 
 			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
 				buildFloatSeqPad(sys.argv[2],sys.argv[3])
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3])==int:
@@ -148,13 +152,13 @@ def main():
 			sepString = sys.argv[1]
 			sepChar = sepString[sepLen:]
 			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
-				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3])==int:
-				buildIntSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			elif typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==int:
-				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
-				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			else:
 				#status code error
 				print 'status code 1'
@@ -166,13 +170,13 @@ def main():
 			sepString = sys.argv[1]
 			sepChar = sepString[sepLen:]
 			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
-				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3])==int:
-				buildIntSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			elif typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==int:
-				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
-				buildFloatSepSeq(sys.argv[2],sys.argv[3],sepChar)
+				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			else:
 				#status code error
 				print 'status code 1'
