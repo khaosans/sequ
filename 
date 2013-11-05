@@ -2,8 +2,7 @@
 #Souriya Khaosang © 2013
 #CS300 Fall Term 2013
 
-#sequ Complience Level 0 ***CHECK***TESTED**
-#sequ Complience Level 0 ***CHECK***NOT TESTED**
+#sequ Complience Level 0
 #Requires Basic functionality 
 
 #Library used for system argument 
@@ -97,7 +96,7 @@ def typeOfValue(text):
 	
 	return str
 
-#Used for printing the seperator function
+#Used for pritinting the seperator function
 def buildSepSeq(beg,end,character):
 	begining = convertNum(beg)
 	ending = convertNum(end)
@@ -115,8 +114,7 @@ def buildSepSeq(beg,end,character):
 		tempString +=str(begining)
 		print tempString
 		return
-
-#Used to print the format sequence	
+	
 def buildFormatSeq(beg, end, inString, increment):
 	begining = convertNum(beg)
 	ending = convertNum(end)
@@ -131,7 +129,6 @@ def buildFormatSeq(beg, end, inString, increment):
 
 # Main part of the program exist below this point	
 def main():
-	#Test cases for format
 	if sys.argv[1]=='-f' or sys.argv[1]=='--format':
 		if len(sys.argv) == 4:
 			if typeOfValue(sys.argv[3])==int or typeOfValue(sys.argv[3])==float:
@@ -148,7 +145,7 @@ def main():
 			else:
 				error()
 		elif len(sys.argv)== 6:
-			if typeOfValue(sys.argv[3])==int or typeOfValue(sys.argv[3])==float: 
+			if typeOfValue(sys.argv[3])==int or typeOfValue(sys.argv[4])==float: 
 				if typeOfValue(sys.argv[4])==int or typeOfValue(sys.argv[4])==float:
 					if typeOfValue(sys.argv[5])==int or typeOfValue(sys.argv[5])==float:
 						buildFormatSeq(sys.argv[3],sys.argv[5],sys.argv[2],sys.argv[4])
@@ -160,9 +157,8 @@ def main():
 				error()
 		else:
 			error()
-	
+
 	elif len(sys.argv) == 4:
-		#test cases for equal width
 		if str(sys.argv[1]) == '--equal-width' or str(sys.argv[1])=='-w': 
 			if typeOfValue(sys.argv[2])==float and typeOfValue(sys.argv[3])==float:
 				buildFloatSeqPad(sys.argv[2],sys.argv[3])
@@ -173,8 +169,9 @@ def main():
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
 				buildFloatSeqPad(sys.argv[2],sys.argv[3])
 			else:
-				error()
-		#test cases for separator
+				#status code error
+				print 'status code 1'
+				return
 		elif sys.argv[1].startswith('--separator'):
 			separator = '--separator'
 			sepLen = separator.__len__()
@@ -189,7 +186,9 @@ def main():
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
 				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			else:
-				error()
+				#status code error
+				print 'status code 1'
+				return
 					
 		elif sys.argv[1].startswith('-s'):
 			separator = '-s'
@@ -205,10 +204,13 @@ def main():
 			elif typeOfValue(sys.argv[2])==int and typeOfValue(sys.argv[3]) == float:
 				buildSepSeq(sys.argv[2],sys.argv[3],sepChar)
 			else:
-				error()
+				#status code error
+				print 'status code 1'
+				return
 
 		else:
-			error()
+			print 'status code 1'
+			return
 	#Check to see if there are exactly two arguments on 
 	elif len(sys.argv) == 3:	
 		beg = sys.argv[1]
@@ -223,7 +225,9 @@ def main():
 		elif typeOfValue(beg) == int and typeOfValue(end)== float:
 			buildFloatSeq(beg,end)
 		else:
-			error()
+			#Status code error
+			print 'status code 1'
+			return
 	elif len(sys.argv) == 2:
 		systemInput = str(sys.argv[1])
 		
@@ -232,9 +236,13 @@ def main():
 		elif systemInput == '--version' or systemInput == '-v':
 			print 'version'
 		else:
-			error()
+			#sttus code error
+			print 'status code 1'
+			return
 	else:
-		error()
+		#status code error
+		print 'status code 1'
+		return
 
 
 if( __name__ == "__main__" ): 
