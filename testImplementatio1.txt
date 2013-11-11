@@ -1,0 +1,222 @@
+Script started on November 10, 2013 09:45:26 PM PST
+sh-3.2$ exit[2Pfgpython sequ.py -w 50.0 101           --help
+Usage: seq [OPTION]... LAST
+
+  or:  seq [OPTION]... FIRST LAST
+
+  or:  seq [OPTION]... FIRST INCREMENT LAST
+
+Print numbers from FIRST to LAST, in steps of INCREMENT.
+
+
+
+  -f, --format=FORMAT      use printf style floating-point FORMAT
+
+  -s, --separator=STRING   use STRING to separate numbers (default: \n)
+
+  -w, --equal-width        equalize width by padding with leading zeroes
+
+      --help     display this help and exit
+
+      --version  output version information and exit
+
+
+
+If FIRST or INCREMENT is omitted, it defaults to 1.  That is, an
+
+omitted INCREMENT defaults to 1 even when LAST is smaller than FIRST.
+
+FIRST, INCREMENT, and LAST are interpreted as floating point values.
+
+INCREMENT is usually positive if FIRST is smaller than LAST, and
+
+INCREMENT is usually negative if FIRST is greater than LAST.
+
+FORMAT must be suitable for printing one argument of type `double';
+
+it defaults to %.PRECf if FIRST, INCREMENT, and LAST are all fixed point
+
+decimal numbers with maximum precision PREC, and to %g otherwise.
+
+
+
+Report seq bugs to khaosans@pdx.edu coreutils home page: <http://www.khaosans.com/>
+
+General help using GNU software: <http://www.gnu.org/gethelp/>
+
+For complete documentation, run: info coreutils 'seq invocation'
+
+sh-3.2$ python sequ.py --help    ver rsion
+seq (GNU coreutils) 8.13
+
+Copyright (C) 2011 Free Software Foundation, Inc.
+
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+
+This is free software: you are free to change and redistribute it.
+
+There is NO WARRANTY, to the extent permitted by law.
+
+
+
+Written by Souriya Khaosanga.
+
+sh-3.2$ python sequ.py --version         10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+sh-3.2$ python sequ.py 10  1 10.0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+sh-3.2$ python sequ.py 1 10.0    10 1 40
+1
+11
+21
+31
+sh-3.2$ python sequ.py 1 10 40       1 10.0      -f %f 20
+1.000000
+2.000000
+3.000000
+4.000000
+5.000000
+6.000000
+7.000000
+8.000000
+9.000000
+10.000000
+11.000000
+12.000000
+13.000000
+14.000000
+15.000000
+16.000000
+17.000000
+18.000000
+19.000000
+20.000000
+sh-3.2$ python sequ.py -f %f 20  1.0     -30 10
+-30.000000
+-29.000000
+-28.000000
+-27.000000
+-26.000000
+-25.000000
+-24.000000
+-23.000000
+-22.000000
+-21.000000
+-20.000000
+-19.000000
+-18.000000
+-17.000000
+-16.000000
+-15.000000
+-14.000000
+-13.000000
+-12.000000
+-11.000000
+-10.000000
+-9.000000
+-8.000000
+-7.000000
+-6.000000
+-5.000000
+-4.000000
+-3.000000
+-2.000000
+-1.000000
+0.000000
+1.000000
+2.000000
+3.000000
+4.000000
+5.000000
+6.000000
+7.000000
+8.000000
+9.000000
+10.000000
+sh-3.2$ python sequ.py -f %f -30 10          r ormat %02f 1 5 40
+status code 1
+sh-3.2$ python sequ.py -format %02f 1 5 40[0@-
+1.000000
+6.000000
+11.000000
+16.000000
+21.000000
+26.000000
+31.000000
+36.000000
+sh-3.2$ python sequ.py --format %02f 1 5 40                   w 10 40     -1 30 58  20
+3
+2
+-30
+-29
+-28
+-27
+-26
+-25
+-24
+-23
+-22
+-21
+-20
+-19
+-18
+-17
+-16
+-15
+-14
+-13
+-12
+-11
+-10
+-09
+-08
+-07
+-06
+-05
+-04
+-03
+-02
+-01
+000
+001
+002
+003
+004
+005
+006
+007
+008
+009
+010
+011
+012
+013
+014
+015
+016
+017
+018
+019
+020
+sh-3.2$ exit
+exit
+
+script done on November 10, 2013 09:56:16 PM PST
