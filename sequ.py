@@ -3,7 +3,7 @@
 #CS300 Fall Term 2013
 
 #sequ Complience Level 0 ***CHECK***TESTED**
-#sequ Complience Level 0 ***CHECK***NOT TESTED**
+#sequ Complience Level 0 ***CHECK***TESTED**
 #Requires Basic functionality 
 
 #Library used for system argument 
@@ -49,34 +49,32 @@ def convertNum(number):
 #the values with 0
 def buildSeqPad(beg, end, increment):
 	
-	
+	#store string length of array
+	strLength = []
+		
 	begining = convertNum(beg)
 	ending = convertNum(end)
 	increm = convertNum(increment)
 	
 	strBeg = str(begining)
 	strEnd = str(ending)	
-	
-	if typeOfValue(beg) == float or typeOfValue(end)==float:
-		floatBeg = float(begining)
-		floatEnd = float(ending)
-		strBeg = str(floatBeg)
-		strEnd = str(floatEnd)	
-	
-	begLength = strBeg.__len__()
-	endLength = strEnd.__len__()
 
-	if begLength >= endLength:
-		maxLength = begLength
-	else:
-		maxLength = endLength
+	strLength.append(strBeg.__len__())
+	strLength.append(strEnd.__len__())
+
+	maxLength = max(strLength)
 
 
+	if typeOfValue(beg) == float or typeOfValue(end) == float:
+		maxLength += 1	
+	if begining < 0 or ending <0:
+		maxLength -= 1
+		
 	while begining <= ending:
+		bufferArray.append(begining)
 		stringToPrint = str(begining)
 		print stringToPrint.zfill(maxLength)	
 		begining += increm
-		
 	return
 
 #Prints the sequence of numbers for floating Point Numbers
@@ -145,13 +143,19 @@ def isArgvNumber(beginValue):
 	return True
 
 			
-		
+def add_to_buffer(valueToAdd,array):
 	
+	array.append(valueToAdd)
+		
+
 	
 	
 
 # Main part of the program exist below this point	
 def main():
+	
+	#Array used for buffering
+	a = []
 
 			
 	#Case where no arguments exist only the call of the program
@@ -207,7 +211,7 @@ def main():
 			else:
 				error()
 
-	#test cases for separator
+	#Cases for separator
 	elif argv[1].startswith('--separator'):
 		separator = '--separator'
 		sepLen = separator.__len__()
@@ -228,12 +232,32 @@ def main():
 				buildSepSeq(argv[2],argv[4],sepChar,argv[3])
 			else:
 				error()
-	#test cases for -s					
+	#Cases for -s					
 	elif argv[1].startswith('-s'):
 		separator = '-s'
 		sepLen = separator.__len__()
 		sepString = argv[1]
 		sepChar = sepString[sepLen:]
+
+		if len(argv) == 3:
+			if isArgvNumber(2):
+				buildSepSeq("1",argv[2],sepChar,"1")
+			else:
+				error()
+		if len(argv) == 4:
+			if isArgvNumber(2):
+				buildSepSeq(argv[2],argv[3],sepChar,"1")
+			else:
+				error()
+		if len(argv) == 5:
+			if isArgvNumber(2):
+				buildSepSeq(argv[2],argv[4],sepChar,argv[3])
+			else:
+				error()
+	#Case -W and --words
+	elif argv[1] == "-W" or argv[1] == '--words':
+		
+		sepChar = ' '
 
 		if len(argv) == 3:
 			if isArgvNumber(2):
