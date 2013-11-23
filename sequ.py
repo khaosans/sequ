@@ -8,6 +8,7 @@
 
 #Library used for system argument 
 from sys import argv;
+import re;
 
 
 #created an error functio
@@ -24,13 +25,28 @@ def printFileToScreen(fileToPrint):
 		line = a.readline()
 	a.close()
 
+def back_slash(toChange):
+	newLine = toChange.replace('\\n','\n')
+	tab = newLine.replace('\\t', '\t')
+	
+	return tab
+
+def max_length(array):
+	maxLength = 0
+	for x in range(0,array.__len__()):
+		if array[x].__len__()>maxLength:
+			maxLength = array[x].__len__()
+	return maxLength
+
 
 #function is used to print string inputs into integer outputs
 #in sequential order
 def buildSequence(beg,end,increm):
+
 	#Converts the strings it integers
 	begining = convertNum(beg)
 	ending = convertNum(end)
+
 	#Prints those numbers
 	while begining<=ending:
 		print begining
@@ -43,15 +59,13 @@ def convertNum(number):
 	except ValueError:
 		return float(number)
 
-
-
 #function builds the sequence for floating point numbers and pads
 #the values with 0
 def buildSeqPad(beg, end, increment):
 	
-	#store string length of array
-	strLength = []
-		
+
+
+	strBuffer = []
 	begining = convertNum(beg)
 	ending = convertNum(end)
 	increm = convertNum(increment)
@@ -59,23 +73,43 @@ def buildSeqPad(beg, end, increment):
 	strBeg = str(begining)
 	strEnd = str(ending)	
 
-	strLength.append(strBeg.__len__())
-	strLength.append(strEnd.__len__())
-
-	maxLength = max(strLength)
 
 
-	if typeOfValue(beg) == float or typeOfValue(end) == float:
-		maxLength += 1	
-	if begining < 0 or ending <0:
-		maxLength -= 1
-		
 	while begining <= ending:
-		bufferArray.append(begining)
 		stringToPrint = str(begining)
-		print stringToPrint.zfill(maxLength)	
+		strBuffer.append(stringToPrint)	
 		begining += increm
+	
+	maxLength = max_length(strBuffer)
+	
+	for x in range(0,strBuffer.__len__()):
+		print strBuffer[x].zfill(maxLength)
 	return
+
+
+
+def build_char_pad(beg, end, increment, char):
+	
+
+	strBuffer = []
+	begining = convertNum(beg)
+	ending = convertNum(end)
+	increm = convertNum(increment)
+	
+	strBeg = str(begining)
+	strEnd = str(ending)	
+
+	while begining <= ending:
+		stringToPrint = str(begining)
+		strBuffer.append(stringToPrint)	
+		begining += increm
+	
+	maxLength = max_length(strBuffer)
+	
+	for x in range(0,strBuffer.__len__()):
+		print strBuffer[x].rjust(maxLength,char)
+	return
+
 
 #Prints the sequence of numbers for floating Point Numbers
 def buildFloatSeq(beg,end,increment):
@@ -117,11 +151,11 @@ def buildSepSeq(beg,end,character,increment):
 	else:		
 		tempString = ''
 		while begining<=ending-increm:
-			tempString += str(begining)
-			tempString += character
+			tempString +=str(begining)
+			tempString +=str(character)
 			begining += increm
-		tempString +=str(begining)
-		print tempString
+		tempString += str(begining)
+		print back_slash(tempString)
 		return
 
 #Used to print the format sequence	
@@ -134,6 +168,7 @@ def buildFormatSeq(beg, end, inString, increment):
 		print (inString  %  begining)
 		begining+=increm
 	return
+
 #check for non float and int value and return a boolean value
 def isArgvNumber(beginValue):
 	lastValue = len(argv)
@@ -143,10 +178,7 @@ def isArgvNumber(beginValue):
 	return True
 
 			
-def add_to_buffer(valueToAdd,array):
-	
-	array.append(valueToAdd)
-		
+
 
 	
 	
@@ -154,10 +186,7 @@ def add_to_buffer(valueToAdd,array):
 # Main part of the program exist below this point	
 def main():
 	
-	#Array used for buffering
-	a = []
-
-			
+				
 	#Case where no arguments exist only the call of the program
 	if len(argv)<=1:
 		return	
@@ -210,6 +239,8 @@ def main():
 				buildSeqPad(argv[2],argv[4],argv[3])
 			else:
 				error()
+		else:
+			error()
 
 	#Cases for separator
 	elif argv[1].startswith('--separator'):
@@ -232,6 +263,8 @@ def main():
 				buildSepSeq(argv[2],argv[4],sepChar,argv[3])
 			else:
 				error()
+		else:
+			error()
 	#Cases for -s					
 	elif argv[1].startswith('-s'):
 		separator = '-s'
@@ -254,6 +287,8 @@ def main():
 				buildSepSeq(argv[2],argv[4],sepChar,argv[3])
 			else:
 				error()
+		else:
+			error()
 	#Case -W and --words
 	elif argv[1] == "-W" or argv[1] == '--words':
 		
@@ -274,12 +309,55 @@ def main():
 				buildSepSeq(argv[2],argv[4],sepChar,argv[3])
 			else:
 				error()
+		else:
+			error()
+	#Pad with character
+	elif argv[1] == "-p" or argv[1] == '--pad':
+		if len(argv) == 4:
+			if isArgvNumber(3):
+				build_char_pad('1',argv[3],'1',argv[2])
+			else:
+				error()
+		if len(argv) == 5:
+			if isArgvNumber(3):
+				build_char_pad(argv[3],argv[4],'1',argv[2])
+			else:
+				error()
+		if len(argv) == 6:
+			if isArgvNumber(3):
+				build_char_pad(argv[3],argv[5],argv[4],argv[2])
+			else:
+				error()
+		else:
+			error()
+
+	#Pad with spaces
+	elif argv[1] == "-P" or argv[1] == '--pad-spaces':
+		if len(argv) == 3:
+			if isArgvNumber(3):
+				build_char_pad('1',argv[2],'1',' ')
+			else:
+				error()
+		if len(argv) == 4:
+			if isArgvNumber(3):
+				build_char_pad(argv[2],argv[3],'1',' ')
+			else:
+				error()
+		if len(argv) == 5:
+			if isArgvNumber(3):
+				build_char_pad(argv[2],argv[4],argv[3],' ')
+			else:
+				error()
+		else:
+			error()
+
 	#Only integers as system arguments
 	elif len(argv) == 4:
 		if isArgvNumber(2):
 			buildFloatSeq(argv[1],argv[3],argv[2])
 		else:
 			error()
+
 
 	#Check to see if there are exactly two arguments on 
 	elif len(argv) == 3:	
