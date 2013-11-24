@@ -33,6 +33,22 @@ def back_slash(toChange):
 	backSlash = backV.replace('\\\\','\\')
 	return backSlash
 
+#Credit Stack Overflow with this function
+def type_of_value(text):
+	try:
+		int(text)
+		return int
+	except ValueError:
+		pass
+
+	try:
+		float(text)
+		return float
+	except ValueError:
+		pass
+	
+	return str
+
 def convert_num(number):
 	try:
 		return int(number)
@@ -43,7 +59,7 @@ def convert_num(number):
 def max_length(array):
 	maxLength = 0
 	for x in range(0,array.__len__()):
-		if array[x].__len__()>maxLength:
+		if array[x].__len__() > maxLength:
 			maxLength = array[x].__len__()
 	return maxLength
 
@@ -108,23 +124,10 @@ def build_char_pad(beg, end, increment, char):
 
 
 
-def type_of_value(text):
-	try:
-		int(text)
-		return int
-	except ValueError:
-		pass
-
-	try:
-		float(text)
-		return float
-	except ValueError:
-		pass
-	
-	return str
-
 #Build implementation for separator
 def build_sep_sequence(beg,end,character,increment):
+
+
 	beginning = convert_num(beg)
 	ending = convert_num(end)
 	increm = convert_num(increment)
@@ -144,6 +147,8 @@ def build_sep_sequence(beg,end,character,increment):
 		return
 
 def build_format_seq(beg, end, inString, increment):
+
+
 	beginning = convert_num(beg)
 	ending = convert_num(end)
 	increm = convert_num(increment)
@@ -175,7 +180,7 @@ def main():
 	if argv[1] == '--help' or argv[1] == '-h':
 		print_file_to_screen("helpfile.txt")
 		return
-		
+
 	#Case where the version is called
 	if argv[1] == '--version' or argv[1] == '-v':
 		print_file_to_screen("versionfile.txt")	
