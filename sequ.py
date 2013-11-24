@@ -1,9 +1,10 @@
+#!/usr/bin/python3
 #this Python File uses the following encoding: utf-8
 #Souriya Khaosanga © 2013
 #CS300 Fall Term 2013
 
-#sequ Complience Level 0 ***CHECK***TESTED**
-#sequ Complience Level 1 ***CHECK***TESTED**
+#sequ Compliance Level 0 ***CHECK***TESTED**
+#sequ Compliance Level 1 ***CHECK***TESTED**
 #sequ Compliance Level 2 ***NOT TESTED***
  
 #Library used for system argument 
