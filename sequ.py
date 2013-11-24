@@ -33,6 +33,12 @@ def back_slash(toChange):
 	backSlash = backV.replace('\\\\','\\')
 	return backSlash
 
+def convert_num(number):
+	try:
+		return int(number)
+	except ValueError:
+		return float(number)
+
 #Find max length of string(s) in an array
 def max_length(array):
 	maxLength = 0
@@ -41,23 +47,17 @@ def max_length(array):
 			maxLength = array[x].__len__()
 	return maxLength
 
-def buildSequence(beg,end,increm):
 
-	#Converts the strings it integers
+def build_seq(beg,end,increment):
 	beginning = convert_num(beg)
 	ending = convert_num(end)
-
-	#Prints those numbers
-	while beginning<=ending:
+	increm = convert_num(increment)
+	
+	while beginning <= ending:
 		print beginning
-		beginning+=increm
+		beginning += increm
 	return
 
-def convert_num(number):
-	try:
-		return int(number)
-	except ValueError:
-		return float(number)
 
 def build_equal_width(beg, end, increment):
 	
@@ -106,15 +106,7 @@ def build_char_pad(beg, end, increment, char):
 		print strBuffer[x].rjust(maxLength,back_slash(char))
 	return
 
-def buildFloatSeq(beg,end,increment):
-	beginning = convert_num(beg)
-	ending = convert_num(end)
-	increm = convert_num(increment)
-	
-	while beginning <= ending:
-		print beginning
-		beginning += increm
-	return
+
 
 def type_of_value(text):
 	try:
@@ -174,14 +166,16 @@ def is_argv_number(beginValue):
 # Main part of the program exist below this point	
 def main():
 	
-				
+			
 	#Base case where only program is called
 	if len(argv)<=1:
 		return	
+
 	#Case where the help is called
 	if argv[1] == '--help' or argv[1] == '-h':
 		print_file_to_screen("helpfile.txt")
 		return
+		
 	#Case where the version is called
 	if argv[1] == '--version' or argv[1] == '-v':
 		print_file_to_screen("versionfile.txt")	
@@ -298,23 +292,14 @@ def main():
 			error()
 
 	#Basic seq implementation 
-	elif len(argv) == 4 and is_argv_number(2):
-		buildFloatSeq(argv[1],argv[3],argv[2])
+	elif len(argv) == 4 and is_argv_number(1):
+		build_seq(argv[1],argv[3],argv[2])
 	
-	elif len(argv) == 3:	
-		
-		if type_of_value(argv[1]) == int and type_of_value(argv[2]) == int:
-			buildSequence(argv[1],argv[2],1)
-		elif is_argv_number(2):
-			buildFloatSeq(argv[1],argv[2],1)
-		else:
-			error()
-	elif len(argv) == 2:
-							
-		if is_argv_number(1):
-			buildSequence(1,argv[1],1)
-		else:
-			error()
+	elif len(argv) == 3 and is_argv_number(1):
+		build_seq(argv[1],argv[2],1)
+
+	elif len(argv) == 2 and is_argv_number(1):
+		build_seq(1,argv[1],1)
 	
 	else:
 		error()
