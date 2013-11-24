@@ -189,45 +189,29 @@ def main():
 
 	#Format implementation
 	if argv[1]=='-f' or argv[1]=='--format':
-		if len(argv) == 4:
-			#arguments of argv beyond index 2 is a float or an int
-			if is_argv_number(3): 
-				build_format_seq("1",argv[3],argv[2],"1")
-			else:
-				error()
-			
-		elif len(argv) == 5: 
-			if is_argv_number(3):
-				build_format_seq(argv[3],argv[4],argv[2],1)
+		if len(argv) == 4 and is_argv_number(3):
+			build_format_seq("1",argv[3],argv[2],"1")
 
-			else:
-				error()
-		elif len(argv)== 6:
-			if is_argv_number(3):
-				build_format_seq(argv[3],argv[5],argv[2],argv[4])
-			else:
-				error()
+		elif len(argv) == 5 and is_argv_number(3):
+			build_format_seq(argv[3],argv[4],argv[2],1)
+
+		elif len(argv)== 6 and is_argv_number(3):
+			build_format_seq(argv[3],argv[5],argv[2],argv[4])
+
 		else:
 			error()
 
 	#Equal Width implementation
 	elif argv[1] == '--equal-width' or argv[1]=='-w':
-		if len(argv) == 3:
-			if is_argv_number(2):
-				build_equal_width("1",argv[2],"1")
-			else:
-				error()
-			
-		elif len(argv) ==  4:
-			if is_argv_number(2):
-				build_equal_width(argv[2],argv[3],"1")
-			else:
-				error()
-		elif len(argv) == 5:
-			if is_argv_number(2):
-				build_equal_width(argv[2],argv[4],argv[3])
-			else:
-				error()
+		if len(argv) == 3 and is_argv_number(2):
+			build_equal_width("1",argv[2],"1")
+
+		elif len(argv) ==  4 and is_argv_number(2):
+			build_equal_width(argv[2],argv[3],"1")
+
+		elif len(argv) == 5 and is_argv_number(2):
+			build_equal_width(argv[2],argv[4],argv[3])
+
 		else:
 			error()
 
@@ -237,21 +221,15 @@ def main():
 		sepLen = separator.__len__()
 		sepString = argv[1]
 		sepChar = sepString[sepLen:]
-		if len(argv) == 3:
-			if is_argv_number(2):
-				build_sep_sequence("1",argv[2],sepChar,"1")
-			else:
-				error()
-		elif len(argv) == 4:
-			if is_argv_number(2):
-				build_sep_sequence(argv[2],argv[3],sepChar,"1")
-			else:
-				error()
-		elif len(argv) == 5:
-			if is_argv_number(2):
-				build_sep_sequence(argv[2],argv[4],sepChar,argv[3])
-			else:
-				error()
+		if len(argv) == 3 and is_argv_number(2):
+			build_sep_sequence("1",argv[2],sepChar,"1")
+
+		elif len(argv) == 4 and is_argv_number(2):
+			build_sep_sequence(argv[2],argv[3],sepChar,"1")
+
+		elif len(argv) == 5 and is_argv_number(2):
+			build_sep_sequence(argv[2],argv[4],sepChar,argv[3])
+
 		else:
 			error()
 						
@@ -261,21 +239,15 @@ def main():
 		sepString = argv[1]
 		sepChar = sepString[sepLen:]
 
-		if len(argv) == 3:
-			if is_argv_number(2):
-				build_sep_sequence("1",argv[2],sepChar,"1")
-			else:
-				error()
-		elif len(argv) == 4:
-			if is_argv_number(2):
-				build_sep_sequence(argv[2],argv[3],sepChar,"1")
-			else:
-				error()
-		elif len(argv) == 5:
-			if is_argv_number(2):
-				build_sep_sequence(argv[2],argv[4],sepChar,argv[3])
-			else:
-				error()
+		if len(argv) == 3 and is_argv_number(2):
+			build_sep_sequence("1",argv[2],sepChar,"1")
+
+		elif len(argv) == 4 and is_argv_number(2):
+			build_sep_sequence(argv[2],argv[3],sepChar,"1")
+
+		elif len(argv) == 5 and is_argv_number(2):
+			build_sep_sequence(argv[2],argv[4],sepChar,argv[3])
+
 		else:
 			error()
 	
@@ -284,72 +256,51 @@ def main():
 		
 		sepChar = ' '
 
-		if len(argv) == 3:
-			if is_argv_number(2):
-				build_sep_sequence("1",argv[2],sepChar,"1")
-			else:
-				error()
-		elif len(argv) == 4:
-			if is_argv_number(2):
-				build_sep_sequence(argv[2],argv[3],sepChar,"1")
-			else:
-				error()
-		elif len(argv) == 5:
-			if is_argv_number(2):
-				build_sep_sequence(argv[2],argv[4],sepChar,argv[3])
-			else:
-				error()
+		if len(argv) == 3 and is_argv_number(2):
+			build_sep_sequence("1",argv[2],sepChar,"1")
+	
+		elif len(argv) == 4 and is_argv_number(2):
+			build_sep_sequence(argv[2],argv[3],sepChar,"1")
+
+		elif len(argv) == 5 and is_argv_number(2):
+			build_sep_sequence(argv[2],argv[4],sepChar,argv[3])
+
 		else:
 			error()
 
 	#Pad with character implementation
 	elif argv[1] == "-p" or argv[1] == '--pad':
-		if len(argv) == 4:
-			if is_argv_number(3):
-				build_char_pad('1',argv[3],'1',argv[2])
-			else:
-				error()
-		elif len(argv) == 5:
-			if is_argv_number(3):
-				build_char_pad(argv[3],argv[4],'1',argv[2])
-			else:
-				error()
-		elif len(argv) == 6:
-			if is_argv_number(3):
-				build_char_pad(argv[3],argv[5],argv[4],argv[2])
-			else:
-				error()
+		if len(argv) == 4 and is_argv_number(3):
+			build_char_pad('1',argv[3],'1',argv[2])
+
+		elif len(argv) == 5 and is_argv_number(3):
+			build_char_pad(argv[3],argv[4],'1',argv[2])
+	
+		elif len(argv) == 6 and is_argv_number(3):
+			build_char_pad(argv[3],argv[5],argv[4],argv[2])
+
 		else:
 			error()
 
 	#Pad with spaces implementation
 	elif argv[1] == "-P" or argv[1] == '--pad-spaces':
-		if len(argv) == 3:
-			if is_argv_number(3):
-				build_char_pad('1',argv[2],'1',' ')
-			else:
-				error()
-		elif len(argv) == 4:
-			if is_argv_number(3):
-				build_char_pad(argv[2],argv[3],'1',' ')
-			else:
-				error()
-		elif len(argv) == 5:
-			if is_argv_number(3):
-				build_char_pad(argv[2],argv[4],argv[3],' ')
-			else:
-				error()
+
+		if len(argv) == 3 and is_argv_number(3):
+			build_char_pad('1',argv[2],'1',' ')
+	
+		elif len(argv) == 4 and is_argv_number(3):
+			build_char_pad(argv[2],argv[3],'1',' ')
+		
+		elif len(argv) == 5 and is_argv_number(3):
+			build_char_pad(argv[2],argv[4],argv[3],' ')
+
 		else:
 			error()
 
 	#Basic seq implementation 
-	elif len(argv) == 4:
-		if is_argv_number(2):
-			buildFloatSeq(argv[1],argv[3],argv[2])
-		else:
-			error()
-
-
+	elif len(argv) == 4 and is_argv_number(2):
+		buildFloatSeq(argv[1],argv[3],argv[2])
+	
 	elif len(argv) == 3:	
 		
 		if type_of_value(argv[1]) == int and type_of_value(argv[2]) == int:
