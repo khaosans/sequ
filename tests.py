@@ -29,6 +29,8 @@ def test_case(testCase, expected):
 	testA = a.read()
 	testB = b
 
+	print testA
+
 	if (testA == testB):
 		print 'True \n'
 		return True
@@ -43,6 +45,8 @@ def expect_fail(testCase, expected):
 
 	testA = a.read()
 	testB = b
+
+	print testA
 
 	if (testA != testB):
 		print 'True \n'

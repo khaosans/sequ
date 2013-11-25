@@ -1,0 +1,181 @@
+Script started on Sun 24 Nov 2013 10:31:57 PM PST
+khaosans@rita:~/Desktop/sequ$ exitpython tests.py
+Implementation 0 and 1 test information (same as GNU)------------------------- 
+
+seq 3 5
+True 
+
+seq 5
+True 
+
+seq -5 2 10
+True 
+
+seq -w -5 50 20
+True 
+
+seq -w -1 .1 1
+False 
+
+seq -5 10 100
+True 
+
+Implementation 2 test information--------------------------------------- 
+
+seq -W TEST should PASS
+T E S T
+
+True 
+
+seq -W TEST should FAIL
+T E S T
+
+True 
+
+seq -W TEST234 TEST4 should PASS
+T E S T 2 3 4
+T E S T 4
+
+True 
+
+seq --words abc should PASS
+a b c
+
+True 
+
+seq -P 10 should PASS
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+
+True 
+
+seq -P 10 should FAIL
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+
+True 
+
+seq -P 0 500 1000 should PASS
+   0
+ 500
+1000
+
+True 
+
+seq -P -1000 500 1000 should PASS
+-1000
+ -500
+    0
+  500
+ 1000
+
+True 
+
+seq -P 0 should FAIL
+
+True 
+
+seq --pad-spaces -1000 500 1000 should PASS
+-1000
+ -500
+    0
+  500
+ 1000
+
+True 
+
+seq --pad-spaces -5 2 1 should PASS
+-5
+-3
+-1
+ 1
+
+True 
+
+seq -P -.1 .5 1 should PASS
+-0.1
+ 0.4
+ 0.9
+
+True 
+
+seq --P should PASS
+status code 1
+
+True 
+
+seq improper input should PASS
+status code 1
+
+True 
+
+seq -p '@' 10 should PASS
+@1
+@2
+@3
+@4
+@5
+@6
+@7
+@8
+@9
+10
+
+True 
+
+seq -p '*' 0 100 300 should PASS
+**0
+100
+200
+300
+
+True 
+
+seq -p improperinput should PASS
+status code 1
+
+True 
+
+seq -p '
+' 3 should PASS
+1
+2
+3
+
+True 
+
+seq --pad '	' -10 10 20 should PASS
+-10
+		0
+	10
+	20
+
+True 
+
+seq --pad ' ' 0 5 10.0 should PASS
+ 0
+ 5
+10
+
+True 
+
+khaosans@rita:~/Desktop/sequ$ [Kkhaosans@rita:~/Desktop/sequ$ exit
+exit
+
+Script done on Sun 24 Nov 2013 10:33:03 PM PST

@@ -30,3 +30,15 @@ I am questioning my pad with character because I'm not totally sure exactly what
 Updated my styling to reflect the pep-00008 Standard as from this website http://www.python.org/dev/peps/pep-0008/#maximum-line-length
 
 Decided to move onto school linux to make use of the seq file for testing older  implementations
+
+TEST CASES:
+	Please look at my tests.py file
+	I've writing out my test cases here where I have 20 cases I've tested.  
+
+Test Results
+	Located in the repo in test results 
+	Two files exist one with outputs and one just for validity
+	testImplem2output.txt and testImplem2.txt
+
+
+
