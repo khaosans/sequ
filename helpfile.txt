@@ -22,5 +22,5 @@ it defaults to %.PRECf if FIRST, INCREMENT, and LAST are all fixed point
 decimal numbers with maximum precision PREC, and to %g otherwise.
 
 Report seq bugs to khaosans@pdx.edu coreutils home page: <http://www.khaosans.com/>
-General help using GNU software: <http://www.gnu.org/gethelp/>
+Very similiar to GNU: For help check out GNU software: <http://www.gnu.org/gethelp/>
 
