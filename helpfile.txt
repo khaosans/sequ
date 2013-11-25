@@ -8,6 +8,9 @@ Print numbers from FIRST to LAST, in steps of INCREMENT.
   -w, --equal-width        equalize width by padding with leading zeroes
       --help     display this help and exit
       --version  output version information and exit
+  -W, --words    take a word and put spaces between each letter
+  -p, --pad      Output the sequence with elements padded on the left to be all of equal width
+  -P, --pad-spaces         Output the sequence with elements padded with spaces on the left to be all of equal width.
 
 If FIRST or INCREMENT is omitted, it defaults to 1.  That is, an
 omitted INCREMENT defaults to 1 even when LAST is smaller than FIRST.
@@ -20,4 +23,4 @@ decimal numbers with maximum precision PREC, and to %g otherwise.
 
 Report seq bugs to khaosans@pdx.edu coreutils home page: <http://www.khaosans.com/>
 General help using GNU software: <http://www.gnu.org/gethelp/>
-For complete documentation, run: info coreutils 'seq invocation'
+
