@@ -1,0 +1,89 @@
+Script started on Sun 24 Nov 2013 09:14:29 PM PST
+khaosans@rita:~/Desktop/sequ$ pythong [K[Kn[K tests.py
+Implementation 0 and 1 test information (same as GNU)------------------------- 
+
+seq 3 5
+True 
+
+seq 5
+True 
+
+seq -5 2 10
+True 
+
+seq -w -5 50 20
+True 
+
+seq -w -1 .1 1
+False 
+
+seq -5 10 100
+True 
+
+Implementation 2 test information--------------------------------------- 
+
+seq -W TEST should PASS
+True 
+
+seq -W TEST should FAIL
+True 
+
+seq -W TEST234 TEST4 should PASS
+True 
+
+seq --words abc should PASS
+True 
+
+seq -P 10 should PASS
+True 
+
+seq -P 10 should FAIL
+True 
+
+seq -P 0 500 1000 should PASS
+True 
+
+seq -P -1000 500 1000 should PASS
+True 
+
+seq -P 0 should FAIL
+True 
+
+seq --pad-spaces -1000 500 1000 should PASS
+True 
+
+seq --pad-spaces -5 2 1 should PASS
+True 
+
+seq -P -.1 .5 1 should PASS
+True 
+
+seq --P should PASS
+True 
+
+seq improper input should PASS
+True 
+
+seq -p '@' 10 should PASS
+True 
+
+seq -p '*' 0 100 300 should PASS
+True 
+
+seq -p improperinput should PASS
+True 
+
+seq -p '
+' 3 should PASS
+True 
+
+seq --pad '	' -10 10 20 should PASS
+True 
+
+seq --pad ' ' 0 5 10.0 should PASS
+True 
+
+khaosans@rita:~/Desktop/sequ$ exit
+exit
+
+Script done on Sun 24 Nov 2013 09:14:43 PM PST
