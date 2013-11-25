@@ -5,7 +5,7 @@
 
 #sequ Compliance Level 0 ***CHECK***TESTED**
 #sequ Compliance Level 1 ***CHECK***TESTED**
-#sequ Compliance Level 2 ***NOT TESTED***
+#sequ Compliance Level 2 ***Check***TESTED**
  
 #Library used for system argument 
 from sys import argv;
