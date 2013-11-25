@@ -1,4 +1,4 @@
-Souriya Khaosanga & Bart Massey © 2013
+Souriya Khaosanga © 2013
 sequ implementation for CS300 Fall 2013
 
 This program is the beggining implemenation of the sequ functions.
