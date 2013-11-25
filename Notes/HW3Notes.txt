@@ -1,0 +1,113 @@
+Souriya Khaosanga
+HW#3 CS300
+
+Link to Project:
+https://projects.cecs.pdx.edu/projects/masseycs300-khaosans
+
+
+Notes for Implementation Level 1
+
+The first step to developing the implementation is understanding the spec for Level1
+
+The help and version files are from the C++ GNU help files: I took this information from them and modifed them accordingly.
+
+Need a way to print to screen from a file:
+	Found this information on http://python.about.com/od/tutorial1/ss/pytutsyntax_4.htm
+	Decided to create function to open a file.
+Needed to a way to convert numbers to the appropriate types:
+	Whether that is an int or a float or neither
+	Found a conversion algorithm from stack overflow: http://stackoverflow.com/questions/379906/parse-string-to-float-or-int
+Needed a way to check if the value was float, int or a string:
+	Found this way here to check wehthere it's an integer or a float or string:http://stackoverflow.com/questions/15357422/determine-if-a-string-can-be-converted-into-int-or-float-in-python
+
+Found that using C++ seq from the school linux.cecs.pdx.edu was a great resource for learning how to properly code a seq.
+
+Understanding Seq:
+	--format or -f is pretty much using the print function with the specifiers of the decimal and float
+	Implemenation of this part would merely be using the existing print function avaiable in python
+
+	--seperator or -s is looking to sperate numbers with a character after the r in sperator or after the "s" in -s
+	This number could be any character
+	To solve this implemenation, I am going to scan until the end of the last string and store that value into a string and concatenate 
+	And print it out.
+
+	--equal-width is simply padding the numbers with zero's such that the incrment will look the same.  
+
+	--help and --version are just information that is printed to the screen when a user is looking for specific information
+
+Psudeocode
+
+Each item has 3 parts to process:
+
+Create a format Print function:
+	Function takes in three arguments as strings and converts them into either ints or floats:
+	Check to see which value is given
+	Take those values and print acording the the input
+Create a seq print function that takes in three arguments
+	Check to see which values are given
+	takes those values and prints according to the input
+create a equalwidth function and takes three inputs
+	checkt o see which values are given
+	takes those values and prints accordingly
+
+
+Each system call needs to account for each of these cases:
+if the inputstring is equal to --format or -f
+	When Argument is one number
+		call the print format function with one arguemnt and the rest are filled in
+	When Argument include begining and end
+		call the print format function with 2 arguments and the rest are filled in
+	when Argument include beggining increment and end
+		call the print format function with 3 arguments 
+if the inputstring is equal to --seperator or -s
+	When Argument is one number
+		call the print seq function with one arguemnt and the rest are filled in
+	When Argument include begining and end
+		call the print seq function with 2 arguments and the rest are filled in
+	when Argument include beggining increment and end
+		call the print seq function with 3 arguments
+if the inputstring is equal to --equal-width or -w
+	When Argument is one number
+		call the print equalwidth function with one arguemnt and the rest are filled in
+	When Argument include begining and end
+		call the print equalwidth function with 2 arguments and the rest are filled in
+	when Argument include beggining increment and end
+		call the print equalwidth function with 3 arguments
+if the inputstring is equal to --help
+	print the help document screen
+if the inputstring is equal to --version
+	print the version document to screen
+
+
+Testing Cases:
+	Test each case of the new parts
+	input: --help prints the help file *Success*
+	input: --version prints out the version text file *success*
+	input: 10 prints from 1 to 10 *success*
+	input: 1 10.0 prints from 1 to 10 however has a bug when not converting to float
+	input: 1 10 40 prints numbers from 1 - 40 incrementing at 10 *success*
+	input: -f %f 20 prints out floating point numbers for 1 to 20 *success*
+	input: -f %f -30 10 prints out numbers -30 to 10 *success*
+	input: -format %02f 1 5 40 should be error *success*
+	input: --format %02f 1 5 40 prints list incrememented by 5 sucessful
+	input: -w -30 20 print numbers with equal padding from 03- to 20 *Needs to correct one part of the code*
+	input: -w -30 20 fixed to removed part of the code used for testing purposes *success*
+	input: -w -30 2.0 prints padded with negative 30 to 2.0 *has a bug that needs to be fixed*
+	input: -w -30 10 45 prints with padding to -30 to 45 *success*
+	input: -equal-width -30 10 45 same as test case above *success*
+	input: -s 10 prints 1 to 10 separated by ** *success*
+	input: -s** 10.0 12 50 print the float of those values *success*
+	input: -seperator 1.0 55 *success*
+	input: -separator#### 10 55 *success*
+	input: --seperator### 10 55 spelling error *bug needs to be looked at*
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	

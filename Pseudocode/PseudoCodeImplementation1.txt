@@ -1,0 +1,46 @@
+Souriya Khaosanga
+CS300 HW3
+Implementation Level 1 
+
+Psudeocode
+
+Each item has 3 parts to process:
+
+Create a format Print function:
+	Function takes in three arguments as strings and converts them into either ints or floats:
+	Check to see which value is given
+	Take those values and print acording the the input
+Create a seq print function that takes in three arguments
+	Check to see which values are given
+	takes those values and prints according to the input
+create a equalwidth function and takes three inputs
+	checkt o see which values are given
+	takes those values and prints accordingly
+
+
+Each system call needs to account for each of these cases:
+if the inputstring is equal to --format or -f
+	When Argument is one number
+		call the print format function with one arguemnt and the rest are filled in
+	When Argument include begining and end
+		call the print format function with 2 arguments and the rest are filled in
+	when Argument include beggining increment and end
+		call the print format function with 3 arguments 
+if the inputstring is equal to --seperator or -s
+	When Argument is one number
+		call the print seq function with one arguemnt and the rest are filled in
+	When Argument include begining and end
+		call the print seq function with 2 arguments and the rest are filled in
+	when Argument include beggining increment and end
+		call the print seq function with 3 arguments
+if the inputstring is equal to --equal-width or -w
+	When Argument is one number
+		call the print equalwidth function with one arguemnt and the rest are filled in
+	When Argument include begining and end
+		call the print equalwidth function with 2 arguments and the rest are filled in
+	when Argument include beggining increment and end
+		call the print equalwidth function with 3 arguments
+if the inputstring is equal to --help
+	print the help document screen
+if the inputstring is equal to --version
+	print the version document to screen

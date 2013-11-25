@@ -1,0 +1,32 @@
+#Souriya Khaosanga © 2013
+#CS300 Fall Term 2013
+
+https://projects.cecs.pdx.edu/projects/masseycs300-khaosans
+
+Psuedo Code for implementation Level 2 Words
+
+	Take the input of a string
+
+	Find the length of that string
+
+	Create an empty string and concat the first letter of the input string followed by a space.
+
+	Return that final string
+
+
+Looking to create a buffer for numbers so decided to create another function that inputs numbers into an array.  
+
+Found that the append function is how you add on to an existing array.  
+
+The . is actually couting as a spot in my program when I'm trying to find the max length.
+
+Having trouble with the backslash escapses.  Python is not recognizes them as it prints so I'm having issues with changing it into 
+a raw literal.
+
+My backslash escape requires two backslash in order to function properly. I talked with Sean Debbellis and was able to compile a list of backslash Escapes list.
+
+I am questioning my pad with character because I'm not totally sure exactly what the output should be, however I am confident that my program is building it correctly if I'm using the same style of equal width to print out.  
+
+Updated my styling to reflect the pep-00008 Standard as from this website http://www.python.org/dev/peps/pep-0008/#maximum-line-length
+
+Decided to move onto school linux to make use of the seq file for testing older  implementations
