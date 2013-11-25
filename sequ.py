@@ -49,6 +49,7 @@ def type_of_value(text):
 	
 	return str
 
+#Credit stack Overflow for this function
 def convert_num(number):
 	try:
 		return int(number)
@@ -74,6 +75,16 @@ def build_seq(beg,end,increment):
 		beginning += increm
 	return
 
+def build_word_space(word):
+	strWord = str(word)
+	wordLength = word.__len__()-1
+	newString = ""
+	for x in range(0,wordLength):
+		newString += strWord[x]
+		newString += ' '
+	newString += strWord[wordLength]
+	print newString
+	return
 
 def build_equal_width(beg, end, increment):
 	
@@ -93,7 +104,7 @@ def build_equal_width(beg, end, increment):
 		beginning += increm
 	
 	maxLength = max_length(strBuffer)
-	
+
 	for x in range(0,strBuffer.__len__()):
 		print strBuffer[x].zfill(maxLength)
 	return
@@ -171,7 +182,7 @@ def is_argv_number(beginValue):
 # Main part of the program exist below this point	
 def main():
 	
-			
+
 	#Base case where only program is called
 	if len(argv)<=1:
 		return	
@@ -253,19 +264,10 @@ def main():
 	#Words implementation 
 	elif argv[1] == "-W" or argv[1] == '--words':
 		
-		sepChar = ' '
+		numOfWords = len(argv)
+		for x in range(2, numOfWords):
+			build_word_space(argv[x])	
 
-		if len(argv) == 3 and is_argv_number(2):
-			build_sep_sequence("1",argv[2],sepChar,"1")
-	
-		elif len(argv) == 4 and is_argv_number(2):
-			build_sep_sequence(argv[2],argv[3],sepChar,"1")
-
-		elif len(argv) == 5 and is_argv_number(2):
-			build_sep_sequence(argv[2],argv[4],sepChar,argv[3])
-
-		else:
-			error()
 
 	#Pad with character implementation
 	elif argv[1] == "-p" or argv[1] == '--pad':
