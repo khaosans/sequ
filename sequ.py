@@ -9,6 +9,56 @@
  
 #Library used for system argument 
 from sys import argv;
+from sys import exit,argv;
+
+#from justin
+numeral_map = zip(
+    (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1),
+    ('M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I')
+)
+
+def int_to_roman(i):
+    result = []
+    for integer, numeral in numeral_map:
+        count = int(i / integer)
+        result.append(numeral * count)
+        i -= integer * count
+    return ''.join(result)
+
+def roman_to_int(n):
+    n = unicode(n).upper()
+
+    i = result = 0
+    for integer, numeral in numeral_map:
+        while n[i:i + len(numeral)] == numeral:
+            result += integer
+            i += len(numeral)
+    return result
+
+def convert_roman(toConvert):
+	try:
+	   if isinstance(int(toConvert),int):
+	        if int(toConvert) <= 0:
+	        	return
+	        if int(toConvert) > 3000:
+	            print 'Integer too big'
+	            return
+	        print int_to_roman(int(toConvert))
+	        return
+	except ValueError:
+	    i = str(toConvert)
+
+	    if roman_to_int(i) == 0:
+	        print 'error'
+	        return    
+	    else:
+	        print roman_to_int(i)
+	
+#------------------------------------------------------
+
+def build_roman():
+	print 'none'
+
 
 def error():
 	print 'status code 1'
@@ -182,6 +232,12 @@ def is_argv_number(beginValue):
 # Main part of the program exist below this point	
 def main():
 	
+	
+	convert_roman('XX')
+	convert_roman(100)
+	convert_roman(2000)
+	convert_roman(200)
+	convert_roman('Cx')
 
 	#Base case where only program is called
 	if len(argv)<=1:

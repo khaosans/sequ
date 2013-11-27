@@ -58,7 +58,7 @@ def expect_fail(testCase, expected):
 
 
 if __name__ == '__main__':
-
+	"""
 	print 'Implementation 0 and 1 test information (same as GNU)------------------------- \n'
 	is_sameGNU("3 5")
 	is_sameGNU("5")
@@ -88,3 +88,13 @@ if __name__ == '__main__':
 	test_case("-p '\n' 3", "1\n2\n3\n")
 	test_case("--pad '\t' -10 10 20","-10\n\t\t0\n\t10\n\t20\n")
 	test_case("--pad ' ' 0 5 10.0", " 0\n 5\n10\n")
+
+	"""
+	test = os.popen("python romanNumbers.py X")
+
+	a = test.read()
+	print a 
+
+	
+
+
