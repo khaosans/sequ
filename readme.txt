@@ -8,7 +8,7 @@ This is part of my CS300 class at Portland State University with Proffessor Mass
 The program is currently at the implementation level 2:
 
 To run the program:
-1) copy the sequ.py program the the working directory
+1) copy the sequ.py program the working directory
 2) call the program by typing "python sequ.py" with the corresponding arguments
 	For Example: python sequ.py 5 
 	For more options please type python sequ.py --help 

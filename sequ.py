@@ -11,7 +11,14 @@
 from sys import argv;
 from sys import exit,argv;
 
-#from justin
+dict = {1:'A',2:'B',3:'C',4:'D',5:'E',6:'F',7:'G',8:'H',9:'I',10 :
+			'J',11:'K',12:'L',13:'M',14:'N',15:'O',16:'P',17:'Q',18:
+				'R',19:'S',20:'T',21:'U',22:'V',23:'W',24:'X',25:'Y',26:'Z'}
+
+#Credit Stack overflow for this Inverse of dictionary
+inv_dict = { v:k for k, v in dict.items()}
+
+# from Justin Shuck and http://code.activestate.com/recipes/81611-roman-numerals/
 numeral_map = zip(
     (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1),
     ('M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I')
@@ -43,26 +50,53 @@ def convert_roman(toConvert):
 	        if int(toConvert) > 3000:
 	            print 'Integer too big'
 	            return
-	        print int_to_roman(int(toConvert))
-	        return
+	        return int_to_roman(int(toConvert))
+	      
 	except ValueError:
 	    i = str(toConvert)
 
 	    if roman_to_int(i) == 0:
-	        print 'error'
+	        print 'Not a Proper Roman'
 	        return    
 	    else:
-	        print roman_to_int(i)
+	        return roman_to_int(i)
 	
-#------------------------------------------------------
-
-def build_roman():
-	print 'none'
 
 
 def error():
 	print 'status code 1'
 	exit(1)
+
+def is_float_int(toCheck):
+	if type(toCheck) is float:
+		return True
+	elif type(toCheck) is int:
+		return True
+	else:
+		return False
+
+
+
+#-----------------------------------------------------------------
+
+def convert_alpha(inputVal):
+	if type(inputVal) is int:
+		modNumber = inputVal % 26
+		print dict.get(inputVal)
+		return
+	elif type_of_value(inputVal) == str and inputVal.__len__() == 1:
+		charVal = inv_dict.get(inputVal.upper())
+		if charVal == None:
+			print 'not valid character'
+			return
+		print charVal
+	
+	else:
+		print "not  correct alpha input"
+		error()
+
+#-----------------------------------------------------------------
+
 
 def print_file_to_screen(fileToPrint):
 	a = open(fileToPrint, "r")
@@ -124,6 +158,37 @@ def build_seq(beg,end,increment):
 		print beginning
 		beginning += increm
 	return
+
+def build_alpha_seq(beg,end,increment):
+	beginning = convert_num(beg)
+	ending = convert_num(end)
+	increm = convert_num(increment)
+	
+	while beginning <= ending:
+		print dict.get(beginning)
+		beginning += increm
+	return
+
+
+
+def build_roman_seq(beg,end,increment):
+	if is_float_int(beg): 
+		return
+	if is_float_int(end):
+		return
+	if is_float_int(increment):
+		return
+
+
+	beginning = convert_roman(beg)
+	ending = convert_roman(end)
+	increm = convert_roman(increment)
+		
+	while beginning <= ending:
+		print convert_roman(beginning)
+		beginning += increm
+	return
+
 
 def build_word_space(word):
 	strWord = str(word)
@@ -209,7 +274,6 @@ def build_sep_sequence(beg,end,character,increment):
 
 def build_format_seq(beg, end, inString, increment):
 
-
 	beginning = convert_num(beg)
 	ending = convert_num(end)
 	increm = convert_num(increment)
@@ -228,17 +292,24 @@ def is_argv_number(beginValue):
 			return False
 	return True
 
+#***********************************************************************************************
 			
 # Main part of the program exist below this point	
 def main():
-	
-	
-	convert_roman('XX')
-	convert_roman(100)
-	convert_roman(2000)
-	convert_roman(200)
-	convert_roman('Cx')
 
+
+
+
+	convert_alpha('f')
+	convert_alpha('p')
+	convert_alpha(25)
+
+
+
+
+
+
+#///////////////////////////////////////////////////////////////////////////////////////////////
 	#Base case where only program is called
 	if len(argv)<=1:
 		return	
@@ -371,4 +442,4 @@ def main():
 if( __name__ == "__main__" ): 
 	main()
 
-
+#*********************************************************************************************
