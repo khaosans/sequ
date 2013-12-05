@@ -11,12 +11,32 @@
 from sys import argv;
 from sys import exit,argv;
 
+
 dict = {1:'A',2:'B',3:'C',4:'D',5:'E',6:'F',7:'G',8:'H',9:'I',10 :
 			'J',11:'K',12:'L',13:'M',14:'N',15:'O',16:'P',17:'Q',18:
 				'R',19:'S',20:'T',21:'U',22:'V',23:'W',24:'X',25:'Y',26:'Z'}
 
 #Credit Stack overflow for this Inverse of dictionary
 inv_dict = { v:k for k, v in dict.items()}
+
+
+def print_line_num(fileName, printType):
+	lineNumber = 1
+	with open(fileName) as inFile: 
+		for line in inFile:
+			if printType == 'ROMAN':
+				print str(convert_roman(lineNumber)) + "   " + line.rstrip()
+			elif printType == 'roman':
+				print str(convert_roman(lineNumber)).lower() + "   "+ line.rstrip()
+			elif printType == 'arabic':
+				print str(lineNumber) + "   " +line.rstrip()
+			elif printType == 'ALPHA':
+				print str(convert_alpha(lineNumber)) + "  " + line.rstrip() 
+			elif printType == 'alpha':
+				print str(convert_alpha(lineNumber)).lower() + "  "+ line.rstrip() 
+			else:
+				error()
+			lineNumber +=1
 
 # from Justin Shuck and http://code.activestate.com/recipes/81611-roman-numerals/
 numeral_map = zip(
@@ -82,14 +102,14 @@ def is_float_int(toCheck):
 def convert_alpha(inputVal):
 	if type(inputVal) is int:
 		modNumber = inputVal % 26
-		print dict.get(inputVal)
+		return dict.get(inputVal)
 		return
 	elif type_of_value(inputVal) == str and inputVal.__len__() == 1:
 		charVal = inv_dict.get(inputVal.upper())
 		if charVal == None:
 			print 'not valid character'
 			return
-		print charVal
+		return charVal
 	
 	else:
 		print "not  correct alpha input"
@@ -296,13 +316,13 @@ def is_argv_number(beginValue):
 			
 # Main part of the program exist below this point	
 def main():
+	print_line_num("test.txt", 'ROMAN')
+	print_line_num("test.txt", 'roman')
+	print_line_num("test.txt", 'alpha')
+	print_line_num("test.txt", 'ALPHA')
+	print_line_num("test.txt", 'arabic')
 
-
-
-
-	convert_alpha('f')
-	convert_alpha('p')
-	convert_alpha(25)
+	
 
 
 
