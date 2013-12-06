@@ -5,11 +5,12 @@
 
 #sequ Compliance Level 0 ***CHECK***TESTED**
 #sequ Compliance Level 1 ***CHECK***TESTED**
-#sequ Compliance Level 2 ***Check***TESTED**
+#sequ Compliance Level 2 ***CHECK***TESTED**
  
 #Library used for system argument 
 from sys import argv;
 from sys import exit,argv;
+import re;
 
 
 dict = {1:'A',2:'B',3:'C',4:'D',5:'E',6:'F',7:'G',8:'H',9:'I',10 :
@@ -20,25 +21,35 @@ dict = {1:'A',2:'B',3:'C',4:'D',5:'E',6:'F',7:'G',8:'H',9:'I',10 :
 inv_dict = { v:k for k, v in dict.items()}
 
 
-def print_line_num(fileName, printType):
+#from Sean Debellis
+def is_roman(string):
+	romanUpREStr = r'M*(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$'
+
+	if re.match(romanUpREStr, string, re.IGNORECASE):
+		return True
+	else:
+		return False
+
+def print_line_num(fileName, printType, sep):
 	lineNumber = 1
 	with open(fileName) as inFile: 
 		for line in inFile:
 			if printType == 'ROMAN':
-				print str(convert_roman(lineNumber)) + "   " + line.rstrip()
+				print str(convert_roman(lineNumber)) + sep + line.rstrip()
 			elif printType == 'roman':
-				print str(convert_roman(lineNumber)).lower() + "   "+ line.rstrip()
+				print str(convert_roman(lineNumber)).lower() + sep + line.rstrip()
 			elif printType == 'arabic':
-				print str(lineNumber) + "   " +line.rstrip()
+				print str(lineNumber) + sep +line.rstrip()
 			elif printType == 'ALPHA':
-				print str(convert_alpha(lineNumber)) + "  " + line.rstrip() 
+				print str(convert_alpha(lineNumber)) + sep + line.rstrip() 
 			elif printType == 'alpha':
-				print str(convert_alpha(lineNumber)).lower() + "  "+ line.rstrip() 
+				print str(convert_alpha(lineNumber)).lower() + sep + line.rstrip() 
 			else:
 				error()
 			lineNumber +=1
 
 # from Justin Shuck and http://code.activestate.com/recipes/81611-roman-numerals/
+#-----------------------------------------------------------------
 numeral_map = zip(
     (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1),
     ('M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I')
@@ -81,23 +92,50 @@ def convert_roman(toConvert):
 	    else:
 	        return roman_to_int(i)
 	
+#-----------------------------------------------------------------
+
+#checks the input to see if it's roman or integer
+def try_roman(inputString):
+	if type_of_value(str(inputString)) == float:
+		return None
+	try:
+		return int(inputString)
+	except ValueError:
+		if is_roman(inputString) == True:
+			return str(inputString)
+	
+
+
+def build_roman_seq(beg,end,increment):
+	#accepts only roman and integer inputs
+
+	beg = try_roman(beg)
+	end = try_roman(end)
+	increment = try_roman(increment)
+
+	if beg == None or end == None or increment == None:
+		error()
+
+	if is_roman(str(beg)) == True:
+		beg = convert_roman(beg)
+
+	if is_roman(str(end)) == True:
+		end = convert_roman(end)
+
+	if is_roman(str(increment)) == True:
+		increment = convert_roman(increment)
+
+	while beg <= end:
+		print convert_roman(beg)
+		beg += increment
+	return
 
 
 def error():
 	print 'status code 1'
 	exit(1)
 
-def is_float_int(toCheck):
-	if type(toCheck) is float:
-		return True
-	elif type(toCheck) is int:
-		return True
-	else:
-		return False
 
-
-
-#-----------------------------------------------------------------
 
 def convert_alpha(inputVal):
 	if type(inputVal) is int:
@@ -114,8 +152,6 @@ def convert_alpha(inputVal):
 	else:
 		print "not  correct alpha input"
 		error()
-
-#-----------------------------------------------------------------
 
 
 def print_file_to_screen(fileToPrint):
@@ -160,6 +196,8 @@ def convert_num(number):
 	except ValueError:
 		return float(number)
 
+
+
 #Find max length of string(s) in an array
 def max_length(array):
 	maxLength = 0
@@ -189,25 +227,6 @@ def build_alpha_seq(beg,end,increment):
 		beginning += increm
 	return
 
-
-
-def build_roman_seq(beg,end,increment):
-	if is_float_int(beg): 
-		return
-	if is_float_int(end):
-		return
-	if is_float_int(increment):
-		return
-
-
-	beginning = convert_roman(beg)
-	ending = convert_roman(end)
-	increm = convert_roman(increment)
-		
-	while beginning <= ending:
-		print convert_roman(beginning)
-		beginning += increm
-	return
 
 
 def build_word_space(word):
@@ -316,36 +335,26 @@ def is_argv_number(beginValue):
 			
 # Main part of the program exist below this point	
 def main():
-	print_line_num("test.txt", 'ROMAN')
-	print_line_num("test.txt", 'roman')
-	print_line_num("test.txt", 'alpha')
-	print_line_num("test.txt", 'ALPHA')
-	print_line_num("test.txt", 'arabic')
+
 
 	
-
-
-
-
-
-
 #///////////////////////////////////////////////////////////////////////////////////////////////
 	#Base case where only program is called
 	if len(argv)<=1:
 		return	
 
 	#Case where the help is called
-	if argv[1] == '--help' or argv[1] == '-h':
+	elif argv[1] == '--help' or argv[1] == '-h':
 		print_file_to_screen("helpfile.txt")
 		return
 
 	#Case where the version is called
-	if argv[1] == '--version' or argv[1] == '-v':
+	elif argv[1] == '--version' or argv[1] == '-v':
 		print_file_to_screen("versionfile.txt")	
 		return
 
 	#Format implementation
-	if argv[1]=='-f' or argv[1]=='--format':
+	elif argv[1]=='-f' or argv[1]=='--format':
 		if len(argv) == 4 and is_argv_number(3):
 			build_format_seq("1",argv[3],argv[2],"1")
 
@@ -457,6 +466,8 @@ def main():
 	
 	else:
 		error()
+
+
 
 
 if( __name__ == "__main__" ): 
