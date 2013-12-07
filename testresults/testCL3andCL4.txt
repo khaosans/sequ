@@ -1,0 +1,408 @@
+Script started on Sat 07 Dec 2013 07:38:37 AM PST
+khaosans@rita:~/Desktop/sequ$ python tests.py
+python sequ.py i v
+i
+ii
+iii
+iv
+v
+python sequ.py 1 V x
+i
+vi
+python sequ.py I v 10
+1
+6
+python sequ.py 1 2 12.0
+1.0
+3.0
+5.0
+7.0
+9.0
+11.0
+python sequ.py -F roman xx
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+ix
+x
+xi
+xii
+xiii
+xiv
+xv
+xvi
+xvii
+xviii
+xix
+xx
+python sequ.py --format-word ROMAN XX
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+python sequ.py -F roman i v xx
+i
+vi
+xi
+xvi
+python sequ.py --format-word alpha a z
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+python sequ.py -F ALPHA P
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+python sequ.py -F ALPHA P K
+python sequ.py -F ALPHA K P
+K
+L
+M
+N
+O
+P
+python sequ.py -F ALPHA A B Z
+A
+C
+E
+G
+I
+K
+M
+O
+Q
+S
+U
+W
+Y
+python sequ.py -F alpha P
+status code 1
+python sequ.py -F alpha k
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+python sequ.py -F alpha p k
+python sequ.py -F alpha k p
+k
+l
+m
+n
+o
+p
+python sequ.py -F alpha a n z
+a
+o
+python sequ.py --format-word ROMAN
+status code 1
+python sequ.py --format-word ROMAN XX
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+python sequ.py -F ROMAN II XXX
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+XXI
+XXII
+XXIII
+XXIV
+XXV
+XXVI
+XXVII
+XXVIII
+XXIX
+XXX
+python sequ.py -F ROMAN II IV L
+II
+VI
+X
+XIV
+XVIII
+XXII
+XXVI
+XXX
+XXXIV
+XXXVIII
+XLII
+XLVI
+L
+python sequ.py -F ROMAN 20
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+python sequ.py -F ROMAN 1 25
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+XXI
+XXII
+XXIII
+XXIV
+XXV
+python sequ.py -F ROMAN 1 IV 25
+I
+V
+IX
+XIII
+XVII
+XXI
+XXV
+python sequ.py -F roman 12
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+ix
+x
+xi
+xii
+python sequ.py -F roman 1 xx
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+ix
+x
+xi
+xii
+xiii
+xiv
+xv
+xvi
+xvii
+xviii
+xix
+xx
+python sequ.py -F roman x v l
+x
+xv
+xx
+xxv
+xxx
+xxxv
+xl
+xlv
+l
+python sequ.py -F roman 1 iv l
+i
+v
+ix
+xiii
+xvii
+xxi
+xxv
+xxix
+xxxiii
+xxxvii
+xli
+xlv
+xlix
+python sequ.py --format-word floating 10.0
+1.0
+2.0
+3.0
+4.0
+5.0
+6.0
+7.0
+8.0
+9.0
+10.0
+python sequ.py -F floating 1.0 5.1
+1.0
+2.0
+3.0
+4.0
+5.0
+python sequ.py -F floating 1.0 2.2 20.5
+1.0
+3.2
+5.4
+7.6
+9.8
+12.0
+14.2
+16.4
+18.6
+python sequ.py --format-word arabic 20
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+python sequ.py -F arabic 1 9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+python sequ.py -F arabic 1 2 12
+1
+3
+5
+7
+9
+11
+khaosans@rita:~/Desktop/sequ$ exit
+exit
+
+Script done on Sat 07 Dec 2013 07:38:46 AM PST

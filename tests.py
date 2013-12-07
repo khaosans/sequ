@@ -69,7 +69,7 @@ if __name__ == '__main__':
 	sysout('I v 10')
 	sysout('1 2 12.0')
 
-	'''
+
 	sysout('-F roman xx')
 	sysout('--format-word ROMAN XX')
 	sysout('-F roman i v xx')
@@ -105,8 +105,6 @@ if __name__ == '__main__':
 	sysout('-F arabic 1 9')
 	sysout('-F arabic 1 2 12')
 
-
-	'''
 
 	'''
 	print 'Implementation 0 and 1 test information (same as GNU)------------------------- \n'
