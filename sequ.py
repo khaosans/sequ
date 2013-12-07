@@ -447,37 +447,45 @@ def is_int_or_roman(value):
 def print_number_line(beg, increm, filename, case, sep):
 
 	lineNumber = beg
+	try:
+		with open(filename) as inFile:
+			
+			for line in inFile:
+				if case == 'roman':
+					print str(convert_roman(lineNumber)).lower() + back_slash(sep) + line.rstrip()
+					lineNumber += increm  
+				elif case == 'ROMAN':
+					print str(convert_roman(lineNumber)) + back_slash(sep) + line.rstrip()
+					lineNumber += increm         
+				elif case == 'ALPHA':
+					lineNumber = (lineNumber % 27) 
+					if lineNumber == 0:
+						lineNumber += 1
+					print str(convert_alpha(lineNumber)) + back_slash(sep) + line.rstrip()
+					lineNumber += increm 
+				elif case == 'alpha':
+					lineNumber = (lineNumber % 27) 
+					if lineNumber == 0:
+						lineNumber += 1
+					print str(convert_alpha(lineNumber )).lower() + back_slash(sep) + line.rstrip()
+					lineNumber += increm
+				elif case == 'FLOAT':
+					print str(float(lineNumber)) + back_slash(sep) + line.rstrip()
+					lineNumber += increm 
+				elif case == 'INTEGER':
+					print str(lineNumber) + back_slash(sep) + line.rstrip()
+					lineNumber += increm
+				else:
+					error()
+		exit(1)	
+	except IOError as e:
+		print 'No such file exists'.format(e.errno, e.strerror)
+	except ValueError:
+		print 'value error'
+	except:
+		raise
 
-	with open(filename) as inFile:
 		
-		for line in inFile:
-			if case == 'roman':
-				print str(convert_roman(lineNumber)).lower() + back_slash(sep) + line.rstrip()
-				lineNumber += increm  
-			elif case == 'ROMAN':
-				print str(convert_roman(lineNumber)) + back_slash(sep) + line.rstrip()
-				lineNumber += increm         
-			elif case == 'ALPHA':
-				lineNumber = (lineNumber % 27) 
-				if lineNumber == 0:
-					lineNumber += 1
-				print str(convert_alpha(lineNumber)) + back_slash(sep) + line.rstrip()
-				lineNumber += increm 
-			elif case == 'alpha':
-				lineNumber = (lineNumber % 27) 
-				if lineNumber == 0:
-					lineNumber += 1
-				print str(convert_alpha(lineNumber )).lower() + back_slash(sep) + line.rstrip()
-				lineNumber += increm
-			elif case == 'FLOAT':
-				print str(float(lineNumber)) + back_slash(sep) + line.rstrip()
-				lineNumber += increm 
-			elif case == 'INTEGER':
-				print str(lineNumber) + back_slash(sep) + line.rstrip()
-				lineNumber += increm
-			else:
-				error()
-
 
 def inferred_print_line(beg, increm, filename, sep):
 
@@ -546,10 +554,14 @@ def increment_by_one(matchingValue):
 	else:
 		error()
 
+#Between these brackets is used for unit testing of functions
 #***********************************************************************************************
 #def number_lines(beg, increm, fileName, printType, sep):			
 # Main part of the program exist below this point	
 def main():
+
+
+
 	'''
 	print_number_line(1,2,"test.txt", 'roman', '\t')
 	
@@ -577,6 +589,8 @@ def main():
 
 
 #///////////////////////////////////////////////////////////////////////////////////////////////
+
+
 	#Base case where only program is called
 	if len(argv)<=1:
 		return	
@@ -782,59 +796,229 @@ def main():
 	
 	#Numberlines inpmlementation
 	elif argv[1] == '-n' or argv[1] == '--number-lines':
-		print len(argv)
-		sepFlag = False
 
+		if len(argv) <= 2 or len(argv) >= 8:
+			error()
+
+		#used to print system arguments for test
+		
+		# for i in range(1,len(argv)):
+		# 	print 'argv['+str(i)+'] '+argv[i]
+
+	
+		# print 'number of args ' +str(len(argv))
+		
+
+		#Set default
+		sepFlag = False
+		
+		
 		#default Separator Character
 		sepChar = ' '
 
-		if argv[2].startswith('--separator'):
-			separator = '--separator'
-			sepLen = separator.__len__()
-			sepString = argv[2]
-			sepChar = sepString[sepLen:]
-			sepFlat = True
-			print sepChar
+		
+		if len(argv) > 2:
+			if argv[2].startswith('--separator'):
+				separator = '--separator'
+				sepLen = separator.__len__()
+				sepString = argv[2]
+				sepChar = sepString[sepLen:]
+				sepFlat = True
+				#print sepChar
 
-		if argv[2].startswith('-s'):
-			separator = '-s'
-			sepLen = separator.__len__()
-			sepString = argv[2]
-			sepChar = sepString[sepLen:]
-			sepFlag = True
-			print sepChar
+			if argv[2].startswith('-s'):
+				separator = '-s'
+				sepLen = separator.__len__()
+				sepString = argv[2]
+				sepChar = sepString[sepLen:]
+				sepFlag = True
+				#print sepChar
+
+		if len(argv) > 3:
+			if argv[3].startswith('--separator'):
+				separator = '--separator'
+				sepLen = separator.__len__()
+				sepString = argv[3]
+				sepChar = sepString[sepLen:]
+				sepFlat = True
+				#print sepChar
+
+			if argv[3].startswith('-s'):
+				separator = '-s'
+				sepLen = separator.__len__()
+				sepString = argv[3]
+				sepChar = sepString[sepLen:]
+				sepFlag = True
+				#print sepChar
+		
+		#For testing and debugging purposes	
+		#print 'Flag ' + str(sepFlag)
 
 		if sepFlag == False:
-			if len(argv) == 3:
-				inferred_print_line('1','1', argv[2], sepChar)
-
-			elif len(argv) == 4:
-				increm = increment_by_one(argv[3])
-				inferred_print_line(argv[3], increm, argv[2], sepChar)
+			try:
+				if len(argv) == 3:
+					inferred_print_line('1','1', argv[2], sepChar)
 
 
-			elif len(argv) == 5:
-				inferred_print_line(argv[3],argv[4] ,argv[2], sepChar)
+				if len(argv) == 4 and argv[2] == 'ROMAN':
+					number_lines('1','1',argv[3] ,'ROMAN', sepChar)
 
-			else:
-				error()
+				if len(argv) == 4 and argv[2] == 'roman':
+					number_lines('1','1',argv[3] ,'roman', sepChar)
 
-		if sepFlag == True:
-			if len(argv) == 4:
-				inferred_print_line('1','1', argv[3], sepChar)
+				if len(argv) == 4 and argv[2] == 'ALPHA':
+					number_lines('A','A',argv[3] ,'ALPHA', sepChar)
 
-			elif len(argv) == 5:
-				increm = increment_by_one(argv[4])
-				inferred_print_line(argv[4], increm, argv[3], sepChar)
+				if len(argv) == 4 and argv[2] == 'alpha':
+					number_lines('a','a',argv[3] ,'alpha', sepChar)
+
+				if len(argv) == 4 and argv[2] == 'arabic':
+					number_lines('1','1',argv[3],'INTEGER', sepChar)	
+
+				if len(argv) == 4 and argv[2] == 'floating':
+					number_lines('1.0','1.0',argv[3],'FLOAT', sepChar)		
 
 
-			elif len(argv) == 6:
-				inferred_print_line(argv[4],argv[5] ,argv[3], sepChar)
+				if len(argv) == 4:
+					increm = increment_by_one(argv[3])
+					inferred_print_line(argv[3], increm, argv[2], sepChar)
 
-			else:
+
+
+				if len(argv) == 5 and argv[2] == 'ROMAN':
+					number_lines(argv[4],'1',argv[3],'ROMAN', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'roman':
+					number_lines(argv[4],'1',argv[3],'roman', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'ALPHA':
+					number_lines(argv[4],'A',argv[3] ,'ALPHA', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'alpha':
+					number_lines(argv[4],'a',argv[3],'alpha', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'arabic':
+					number_lines(argv[4],'1',argv[3],'INTEGER', sepChar)	
+
+				if len(argv) == 5 and argv[2] == 'floating':
+					number_lines(argv[4],'1.0',argv[3] ,'FLOAT', sepChar)
+
+
+
+				if len(argv) == 5:
+					inferred_print_line(argv[3],argv[4] ,argv[2], sepChar)
+
+
+
+				if len(argv) == 6 and argv[2] == 'ROMAN':
+					number_lines(argv[4], argv[5],argv[3],'ROMAN', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'roman':
+					number_lines(argv[4], argv[5],argv[3],'roman', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'ALPHA':
+					number_lines(argv[4], argv[5],argv[3],'ALPHA', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'alpha':
+					number_lines(argv[4], argv[5],argv[3],'alpha', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'arabic':
+					number_lines(argv[4], argv[5],argv[3],'INTEGER', sepChar)	
+
+				if len(argv) == 6 and argv[2] == 'floating':
+					number_lines(argv[4], argv[5],argv[3] ,'FLOAT', sepChar)
+
+				if len(argv) == 7:
+					error()
+
+				else:
+					error()
+
+			except ValueError:
 				error()
 
 		
+		if sepFlag == True:
+			try:
+				if len(argv) == 4:
+					inferred_print_line('1','1', argv[3], sepChar)
+
+				if len(argv) == 5 and argv[2] == 'ROMAN':
+					number_lines('1','1',argv[4],'ROMAN', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'roman':
+					number_lines('1','1',argv[4],'roman', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'ALPHA':
+					number_lines('A','A',argv[4],'ALPHA', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'alpha':
+					number_lines('a','a',argv[4],'alpha', sepChar)
+
+				if len(argv) == 5 and argv[2] == 'arabic':
+					number_lines('1','1',argv[4],'INTEGER', sepChar)	
+
+				if len(argv) == 5 and argv[3] == 'floating':
+					number_lines('1.0','1.0',argv[4],'FLOAT', sepChar)
+
+
+
+				if len(argv) == 5:
+					increm = increment_by_one(argv[4])
+					inferred_print_line(argv[4], increm, argv[3], sepChar)
+
+
+
+				if len(argv) == 6 and argv[2] == 'ROMAN':
+					number_lines(argv[5],'1', argv[4],'ROMAN', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'roman':
+					number_lines(argv[5],'1', argv[4],'roman', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'ALPHA':
+					number_lines(argv[5],'A', argv[4],'ALPHA', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'alpha':
+					number_lines(argv[5],'a', argv[4],'alpha', sepChar)
+
+				if len(argv) == 6 and argv[2] == 'arabic':
+					number_lines(argv[5],'1', argv[4],'INTEGER', sepChar)	
+
+				if len(argv) == 6 and argv[2] == 'floating':
+					number_lines(argv[5], '1.0', argv[4],'FLOAT', sepChar)
+					
+
+				if len(argv) == 6:
+					inferred_print_line(argv[4],argv[5] ,argv[3], sepChar)
+
+
+				if len(argv) == 7 and argv[2] == 'ROMAN':
+					number_lines(argv[5], argv[6] , argv[4],'ROMAN', sepChar)
+
+				if len(argv) == 7 and argv[2] == 'roman':
+					number_lines(argv[5], argv[6] , argv[4],'roman', sepChar)
+
+				if len(argv) == 7 and argv[2] == 'ALPHA':
+					number_lines(argv[5], argv[6] , argv[4],'ALPHA', sepChar)
+
+				if len(argv) == 7 and argv[2] == 'alpha':
+					number_lines(argv[5], argv[6] , argv[4],'alpha', sepChar)
+
+				if len(argv) == 7 and argv[2] == 'arabic':
+					number_lines(argv[5], argv[6] , argv[4],'INTEGER', sepChar)	
+
+				if len(argv) == 7 and argv[2] == 'floating':
+					number_lines(argv[5], argv[6] , argv[4],'FLOAT', sepChar)
+
+				else:
+					error()
+
+			
+			except ValueError:
+				error()
+
+		
+
 
 	else:
 		error()
