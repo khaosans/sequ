@@ -217,7 +217,7 @@ def convert_alpha(inputVal):
 
 def build_alpha_seq(beg, end, increment, uppercase):
 	
-	
+
 	beg = convert_alpha(beg)
 	end = convert_alpha(end)
 
@@ -416,7 +416,7 @@ def is_argv_number(beginValue):
 			return False
 	return True
 #Determines if the system arguments are integer or roman numeral
-def is_argv_inter_or_roman(beginValue):
+def is_argv_int_or_roman(beginValue):
 	lastValue = len(argv)
 	for i in range(beginValue,lastValue):
 		if type_of_value(argv[i])==str  and is_roman(argv[i]) == False:
@@ -430,96 +430,151 @@ def is_int_or_float(value):
 	else: 
 		return False
 
-'''
-def number_lines(beg, increm, fileName, printType, sep):
+#determine if the value is a integer or a roman value		
+def is_int_or_roman(value):
+	if is_roman(value) == True:
+		return True
+	elif type_of_value(value) == int:
+		return True
+	else:
+		return False
 
-	print determine_numeral_type(beg)
-	print determine_numeral_type(increm)
-	functionType = 0
 
 
-	if printType == 'ROMAN' or determine_numeral_type(beg) == 'ROMAN' or determine_numeral_type(str(increm)) == 'ROMAN':
-		lineNumber = convert_romanint_to_int(beg)
-		increm = convert_romanint_to_int(increm)
-		functionType = 1
 
-	
-	if printType == 'roman' or determine_numeral_type(beg) == 'roman' or determine_numeral_type(str(increm)) == 'roman':
-		lineNumber = convert_romanint_to_int(beg)
-		increm = convert_romanint_to_int(increm)
 
-	if printType == 'arabic' or determine_numeral_type(beg) == 'INTEGER' or determine_numeral_type(str(increm)) == 'INTEGER':
-		if determine_numeral_type(beg) == 'INTEGER' and determine_numeral_type(str(increm)) == 'INTEGER':
-			lineNumber = convert_num(beg)
-			increm = convert_num(increm)
-		else:
-			error()
+#Function takes only integers or floating points as arguments		
+def print_number_line(beg, increm, filename, case, sep):
 
-	if printType == 'ALPHA':
-		if determine_numeral_type(beg) == 'ALPHA':
-			lineNumber = convert_alpha(beg)
-			increm = convert_alpha(increm)
-		else:
-			error()
+	lineNumber = beg
 
-	if printType == 'alpha':
-		if determine_numeral_type(beg) == 'alpha':
-			lineNumber = convert_alpha(beg)
-			increm = convert_alpha(increm)
-		else:
-			error()
-
-	if printType == 'FLOAT' or determine_numeral_type(beg) == 'FLOAT' or determine_numeral_type(str(increm)) == 'FLOAT':
-		if determine_numeral_type(beg) == 'FLOAT' and determine_numeral_type(str(increm)) == 'FLOAT':
-			lineNumber = float(beg)
-			increm = float(increm)
-		else:
-			error()
-	
-	print functionType
-	with open(fileName) as inFile: 
+	with open(filename) as inFile:
+		
 		for line in inFile:
-
-			elif printType == 'roman' or determine_numeral_type(beg) == 'roman' : 
-				print str(convert_roman(lineNumber)).lower() + sep + line.rstrip()
-				lineNumber += increm		
-			elif printType == 'arabic' or determine_numeral_type(beg) == 'INTEGER':
-				print str(lineNumber) + sep +line.rstrip()
+			if case == 'roman':
+				print str(convert_roman(lineNumber)).lower() + back_slash(sep) + line.rstrip()
+				lineNumber += increm  
+			elif case == 'ROMAN':
+				print str(convert_roman(lineNumber)) + back_slash(sep) + line.rstrip()
+				lineNumber += increm         
+			elif case == 'ALPHA':
+				lineNumber = (lineNumber % 27) 
+				if lineNumber == 0:
+					lineNumber += 1
+				print str(convert_alpha(lineNumber)) + back_slash(sep) + line.rstrip()
+				lineNumber += increm 
+			elif case == 'alpha':
+				lineNumber = (lineNumber % 27) 
+				if lineNumber == 0:
+					lineNumber += 1
+				print str(convert_alpha(lineNumber )).lower() + back_slash(sep) + line.rstrip()
 				lineNumber += increm
-			elif printType == 'ALPHA':
-				print str(convert_alpha(lineNumber)) + sep + line.rstrip()
+			elif case == 'FLOAT':
+				print str(float(lineNumber)) + back_slash(sep) + line.rstrip()
 				lineNumber += increm 
-			elif printType == 'alpha':
-				print str(convert_alpha(lineNumber)).lower() + sep + line.rstrip()
-				lineNumber += increm 
-			elif printType == 'FLOAT' or determine_numeral_type(beg) == 'FLOAT':
-				print str(float(lineNumber)) + sep + line.rstrip()
+			elif case == 'INTEGER':
+				print str(lineNumber) + back_slash(sep) + line.rstrip()
 				lineNumber += increm
 			else:
 				error()
-		
-def inferred_num_line(beg, increm, fileName, sep):
 
-	lineNumber = 0;
-	increm = 0
 
-	if determine_numeral_type(beg) == 'ROMAN' and determine_numeral_type(increm) == 'ROMAN':
-		lineNumber = convert_romanint_to_int(beg)
-		with open(fileName) as inFile: 
-			for line in inFile:
-				print convert_roman(lineNumber) + sep + line.rstrip()
-	elif determine_numeral_type(beg) == 'roman' and determine_numeral_type(increm) == 'roman':
-		with open(fileName) as inFile: 
-			for line in inFile:
-				print str(convert_roman(lineNumber)).lower() + sep + line.rstrip()
-				lineNumber += increm
-				return
-'''
+def inferred_print_line(beg, increm, filename, sep):
+
+	if is_roman(beg) == True and is_roman(increm) == True:
+		if beg.isupper() == True and increm.isupper() == True:
+			print_number_line(convert_romanint_to_int(beg),convert_romanint_to_int(increm),filename, 'ROMAN', sep)
+
+	
+		elif beg.islower() == True and increm.islower() == True:
+			print_number_line(convert_romanint_to_int(beg), convert_romanint_to_int(increm), filename, 'roman', sep)
+
+		else:
+			error()
+
+	elif determine_numeral_type(beg) == 'alpha' and determine_numeral_type(increm) == 'alpha':
+		print_number_line(convert_alpha(beg), convert_alpha(increm), filename, 'alpha', sep)
+
+	elif determine_numeral_type(beg) == 'ALPHA' and determine_numeral_type(increm) == 'ALPHA':
+		print_number_line(convert_alpha(beg), convert_alpha(increm), filename, 'ALPHA', sep)
+
+	elif determine_numeral_type(beg) == 'FLOAT' and determine_numeral_type(increm) == 'FLOAT':
+		print_number_line(float(beg), float(increm), filename, 'FLOAT', sep)
+
+	elif determine_numeral_type(beg) == 'INTEGER' and determine_numeral_type(increm) == 'INTEGER':
+		print_number_line(int(beg), int(increm), filename, 'INTEGER', sep)
+
+	else:
+		error()				
+
+def number_lines(beg, increm, fileName, case, sep):
+	if case == 'roman':
+		if is_int_or_roman(beg) == True and is_int_or_roman(increm) == True:
+			print_number_line(convert_romanint_to_int(beg),convert_romanint_to_int(increm),fileName, 'roman', sep)
+
+	elif case == 'ROMAN':
+		if is_int_or_roman(beg) == True and is_int_or_roman(increm) == True:
+			print_number_line(convert_romanint_to_int(beg),convert_romanint_to_int(increm),fileName, 'ROMAN', sep)
+
+
+	elif case == 'ALPHA':
+		if determine_numeral_type(beg) == 'ALPHA' and determine_numeral_type(increm) == 'ALPHA':
+			print_number_line(convert_alpha(beg),convert_alpha(increm),fileName, 'ALPHA', sep)
+
+	elif case == 'alpha':
+		if determine_numeral_type(beg) == 'alpha' and determine_numeral_type(increm) == 'alpha':
+			print_number_line(convert_alpha(beg),convert_alpha(increm),fileName, 'alpha', sep)
+
+	elif case == 'FLOAT':
+		if determine_numeral_type(beg) == 'FLOAT' and determine_numeral_type(increm) == 'FLOAT':
+			print_number_line(float(beg), float(increm), fileName, 'FLOAT', sep)
+	elif case == 'INTEGER':
+		if determine_numeral_type(beg) == 'INTEGER' and determine_numeral_type(increm) == 'INTEGER':
+			print_number_line(int(beg), int(increm), fileName, 'INTEGER', sep)
+	else:
+		error()
+
+def increment_by_one(matchingValue):
+	if is_roman(matchingValue) == True and matchingValue.isupper() == True:
+			return 'I'
+	elif is_roman(matchingValue) == True and matchingValue.islower() == True:
+			return 'i'
+	elif type_of_value(matchingValue) == float:
+		return '1.0'
+	elif type_of_value(matchingValue) == int:
+		return '1'
+	else:
+		error()
+
 #***********************************************************************************************
 #def number_lines(beg, increm, fileName, printType, sep):			
 # Main part of the program exist below this point	
 def main():
+	'''
+	print_number_line(1,2,"test.txt", 'roman', '\t')
 	
+	print_number_line(1,2,"test.txt", 'ROMAN', '\t')
+	print_number_line(1,1,"test.txt", 'ALPHA', '\t')
+
+	print_number_line(1,2,"test.txt", 'alpha', '\t')
+	print_number_line(1,2,"test.txt", 'FLOAT', '\t')
+	print_number_line(1,2,'test.txt', 'INTEGER', '\t')
+	'''
+	#inferred_print_line('I','II', 'test.txt', '\t')
+	#inferred_print_line('i','ii','test.txt', '\t')
+	#inferred_print_line('a','a','test.txt', '\t')
+	#inferred_print_line('A','A','test.txt', '\t')
+	#inferred_print_line('1.0','2.0','test.txt', '\t')
+	#inferred_print_line('1','2','test.txt', '\t')
+	#number_lines('1','2','test.txt','roman', '\t')
+	#number_lines('i','ii','test.txt','roman', '\t')
+	#number_lines('i','ii','test.txt','ROMAN', '\t')
+	#number_lines('A','A','test.txt','ALPHA','\t')
+	#number_lines('a','a','test.txt','alpha','\t')
+
+	#number_lines('1.0', '2.0','test.txt', 'FLOAT', '\t')
+	#number_lines('1', '2','test.txt', 'INTEGER', '\t')
+
 
 #///////////////////////////////////////////////////////////////////////////////////////////////
 	#Base case where only program is called
@@ -597,7 +652,7 @@ def main():
 			else:
 				error()	
 			
-		elif argv[2] == 'ROMAN' and is_argv_inter_or_roman(3) == True:
+		elif argv[2] == 'ROMAN' and is_argv_int_or_roman(3) == True:
 			if len(argv) == 4:
 				build_roman_seq('1',argv[3],'1', True)
 			elif len(argv) == 5:
@@ -607,7 +662,7 @@ def main():
 			else:
 				error()
 			
-		elif argv[2] == 'roman' and is_argv_inter_or_roman(3) == True:
+		elif argv[2] == 'roman' and is_argv_int_or_roman(3) == True:
 			if len(argv) == 4:
 				build_roman_seq('1',argv[3],'1', False)
 			elif len(argv) == 5:
@@ -718,28 +773,68 @@ def main():
 		build_inferred_seq(1,argv[1],1)
 
 	#inferred Roman Sequence
-	elif len(argv) == 4 and is_argv_inter_or_roman(1):
+	elif len(argv) == 4 and is_argv_int_or_roman(1):
 		build_inferred_seq(argv[1],argv[3],argv[2])
-	elif len(argv) == 3 and is_argv_inter_or_roman(1):
+	elif len(argv) == 3 and is_argv_int_or_roman(1):
 		build_inferred_seq(argv[1],argv[2],1)
-	elif len(argv) == 2 and is_argv_inter_or_roman(1):
+	elif len(argv) == 2 and is_argv_int_or_roman(1):
 		build_inferred_seq(1,argv[1],1)
 	
 	#Numberlines inpmlementation
 	elif argv[1] == '-n' or argv[1] == '--number-lines':
+		print len(argv)
+		sepFlag = False
+
+		#default Separator Character
+		sepChar = ' '
+
 		if argv[2].startswith('--separator'):
 			separator = '--separator'
 			sepLen = separator.__len__()
 			sepString = argv[2]
 			sepChar = sepString[sepLen:]
+			sepFlat = True
 			print sepChar
 
-		elif argv[2].startswith('-s'):
+		if argv[2].startswith('-s'):
 			separator = '-s'
 			sepLen = separator.__len__()
 			sepString = argv[2]
 			sepChar = sepString[sepLen:]
+			sepFlag = True
 			print sepChar
+
+		if sepFlag == False:
+			if len(argv) == 3:
+				inferred_print_line('1','1', argv[2], sepChar)
+
+			elif len(argv) == 4:
+				increm = increment_by_one(argv[3])
+				inferred_print_line(argv[3], increm, argv[2], sepChar)
+
+
+			elif len(argv) == 5:
+				inferred_print_line(argv[3],argv[4] ,argv[2], sepChar)
+
+			else:
+				error()
+
+		if sepFlag == True:
+			if len(argv) == 4:
+				inferred_print_line('1','1', argv[3], sepChar)
+
+			elif len(argv) == 5:
+				increm = increment_by_one(argv[4])
+				inferred_print_line(argv[4], increm, argv[3], sepChar)
+
+
+			elif len(argv) == 6:
+				inferred_print_line(argv[4],argv[5] ,argv[3], sepChar)
+
+			else:
+				error()
+
+		
 
 	else:
 		error()
