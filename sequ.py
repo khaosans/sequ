@@ -117,13 +117,16 @@ def convert_romanint_to_int(stringValue):
 
 def build_inferred_seq(beg,end,increm):
 
-	if is_int_or_float(beg) == True and is_int_or_float(end) == True and is_int_or_float(increm) == True:
-		build_seq(beg, end, increm)
+	
+	if type_of_value(end) == float:
+		build_float_seq(roman_float(beg), roman_float(end),roman_float(increm))
 
 	elif is_roman(end) == True:
+
 		build_roman_seq(beg,end,increm,end.isupper())
-	
+
 	elif type_of_value(end) == int:
+
 		build_seq_from_roman(beg,end,increm)
 
 	
@@ -139,7 +142,16 @@ def try_roman(inputString):
 	except ValueError:
 		if is_roman(inputString) == True:
 			return str(inputString)
-	
+
+#returns value for floats, ints or romans
+def roman_float(inputString):
+	try:
+		return float(inputString)
+	except ValueError:
+		if is_roman(inputString) == True:
+			return convert_roman(inputString) + 0.0
+
+
 
 #takes input of Roman numerals and integers
 def build_roman_seq(beg,end, increment, uppercase):
@@ -284,6 +296,17 @@ def max_length(array):
 		if array[x].__len__() > maxLength:
 			maxLength = array[x].__len__()
 	return maxLength
+
+
+def build_float_seq(beg,end,increment):
+	beginning = float(beg)
+	ending = float(end)
+	increm = float(increment)
+	
+	while beginning <= ending:
+		print beginning
+		beginning += increm
+	return
 
 
 def build_seq(beg,end,increment):
@@ -560,8 +583,9 @@ def increment_by_one(matchingValue):
 # Main part of the program exist below this point	
 def main():
 
-
-
+	# print roman_float('1.0')
+	# print roman_float('IV')
+	# print roman_float('1')
 	'''
 	print_number_line(1,2,"test.txt", 'roman', '\t')
 	

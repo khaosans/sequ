@@ -1,0 +1,155 @@
+#Souriya Khaosanga © 2013
+#CS300 Fall Term 2013
+HW4 Notes 
+
+The following is the notes for implementation level 3 and 4 described in the readme.  
+
+Credits:
+	Although this is stated in my code I just want to give credit those those who I have gained valuable information from:
+
+	Firstly, the roman numeral functions I would like to credit Justin Shuck and the website:
+	http://code.activestate.com/recipes/81611-roman-numerals/ for helping me resolve the issue
+	of accounting for roman numerals.  Much of these functions were taken and slightly modified
+	from the site. These have proven to be extremely useful in solving the roman numeral problems.  
+
+	Secondly, I'd like to credit Sean Debellis for researching and implementing the regular expressions in my program.
+	With these regular expression functions, I was able to quickly determine certain languages in the language.
+
+	For example:
+		Languages for the roman numeral were much easier to identify with the regular expressions.  These included
+		upper and lower case alpha, upper and lower case roman numberals, floating point numbers and integers.
+
+	These functions were invaluable in my program because I was able to determine certain types of languages and figure
+	out which functions I would need to call to properly handle my program.  
+
+	Thirdly, I found lots of help from the stack overflow website.  Overall, I'd just like to thank and credit the internet 
+	for providing such information and knowledge.  These types of sites are extremely useful for soliving and reminding
+	me of my basic sytax.  I also found the python.org site to provide great information for in library functions
+	which I definitely made good use. 
+
+Issues:
+	1)
+		First issue was the inferred from input.
+		The program had ambigiuty from the alpha and roman numberals.
+		For example when we input X or x: Does this mean the alpha value or the roman numeral value.
+
+		Because I decided to convert the alpha into integers mapped from a to 1 and z to 26.  This created an issue 
+		of x being 10(Roman Numeral integer equivelent) or x being (Alphabet integer equivelent 24)
+
+		To handle this situation, I decided to remove the inference for ALPHA and alpha. This strictly means
+		that the only way to get an alpha output the user will be required to type those commands otherwise
+		my sequ program will not handle.  
+
+		As this decision was made because one way or another, I would not have been able to solve the ambiguity problem. 
+
+	2)
+		Determining inference from the number lines when we had input of beginning and increment.  For this part of the
+		program, I decided that from the spec, it state that when an argument is supplied with the format word, 
+		the input had to be consistent with the input.  
+
+		For example:
+			If the user calls 'sequ.py -F arabic V1 V2' -- I required that V1 and V2 be of the arabic type.  If one 
+			was not of arabic type (ie not an integer) this would result in an error.  So my spec will not handle 
+			different types of the type of argument:
+				arabic means integer
+				ALPHA means uppercase alphabet
+				alpha means lowercase alphabet
+				ROMAN means uppercase roman numerals
+				roman means lowercase roman numberals
+				floating means floats
+
+			Just to clarify, my program will return an error if any of the arguments is supplied and the variables 
+			are not consistently the same.  
+	3)
+		Sequ program does handle and infers from the last supplied argument: romans (uppercase and lowercase), arabic
+		(integers), floating (float).  However, I'd like to stress that my program does NOT handle the alpha but
+		that the user will need to specify alpha or ALPHA to use the alpha option.  This is due to ambiguity.
+
+
+Other:
+
+	1) 
+		Modular functions: I'd just like to stress the large need to modularize my functions so that they could be 
+		unit tested effectively.  I found that I was more successful when I was designing functions at the most
+		basic functions
+
+		For Example:
+			When it came time to implement the design for 'newlines'--my first attempt ended in massive failure
+			because I tried to create one function to handle all my cases.  I found that stepping through and
+			manually debugging the program became extremely difficult and nearly impossible without going insane.  
+
+			So I decided to start from scratch and design individual functions which handled very simple tasks.
+			One function that prints the various cases: 
+				arabic means integer
+				ALPHA means uppercase alphabet
+				alpha means lowercase alphabet
+				ROMAN means uppercase roman numerals
+				roman means lowercase roman numberals
+				floating means floats
+
+			This was then followed by an function which was designed to infer from the mandatory last argument
+			from command line. This was very useful because when I ran into bugs, I could easily test each
+			function and then deal with the issues from that point.
+
+			Finally, I created a function that dealt with the simple printing with arguments which specified
+			what types I would need to print. 
+
+
+
+Psedo Code:
+
+	Printing Code function:
+
+		1) Accept arguments for each of the input required for printing.
+
+		2) Determine which print type the function will use:
+			a)arabic means integer
+			b)ALPHA means uppercase alphabet
+			c)alpha means lowercase alphabet
+			d)ROMAN means uppercase roman numerals
+			e)roman means lowercase roman numberals
+			f)floating means floats
+
+		3)Ensure that the arguments into the function are only integers or floats.
+			a) if not reject and kick out of the function
+		
+		4)If input are correct, then convert the various input to the correct
+			type and print out. 
+
+		5)When printing is complete, exit out of the program.
+
+	Inference function:
+
+		1) Determine the last argument value.
+
+		2) Create a variable which stores the type of argument the last argument is.
+
+		3) Pass this information to the function which handles the printing process.
+
+
+	Code for number Lines:
+
+		For this I tried to psuedo code but I couldn't get my head around all the cases.
+		So instead, I simply brute force my way through each of the cases and made sure
+		I had the correct output for each of input.  Although this may not be as good 
+		as creating the psuedo code, for my understanding I found it easier to 
+		use the trial and error method.  This however took much more time but in the
+		end, it worked.  
+
+
+
+Test Cases:
+	
+	If you look at my code in lines 557 - 590 you will notice my unit tests that I have left in.  This part
+	of my program I found that leaving these into my program made it much easier to test if certain functions
+	were performing as intended.  I would consider these to be white box testing as I know what is insde the 
+	function.  
+
+	Lines 803 - 809: This information was used to help determine how many arguments I had, which arguments 
+	are provided and their index system value.  I also created a flat to determine if the user called a 
+	seperator which input a seperator character(s).  This is probably one of the most useful items, as
+	I did try to pseudo code this part but just found that brute force was the best way for me to resolve 
+	this issues.
+
+	Finally for my test cases please look at my updated test.py file which I will output the and place
+	these on the test output folder. 

@@ -55,10 +55,60 @@ def expect_fail(testCase, expected):
 		print 'False \n'
 		return False
 
+def sysout(testCase):
 
+	print 'python sequ.py '+testCase
+	os.system("python sequ.py "+ testCase)
+	
 
 if __name__ == '__main__':
-	"""
+
+	#Implementation Test for CL 3 
+	sysout('i v')
+	sysout('1 V x')
+	sysout('I v 10')
+	sysout('1 2 12.0')
+
+	'''
+	sysout('-F roman xx')
+	sysout('--format-word ROMAN XX')
+	sysout('-F roman i v xx')
+	
+	sysout('--format-word alpha a z')
+	sysout('-F ALPHA P')
+	sysout('-F ALPHA P K')
+	sysout('-F ALPHA K P')
+	sysout('-F ALPHA A B Z')
+	sysout('-F alpha P')
+	sysout('-F alpha k')
+	sysout('-F alpha p k')
+	sysout('-F alpha k p')
+	sysout('-F alpha a n z')
+
+	sysout('--format-word ROMAN')
+	sysout('--format-word ROMAN XX')
+	sysout('-F ROMAN II XXX')
+	sysout('-F ROMAN II IV L')
+	sysout('-F ROMAN 20')
+	sysout('-F ROMAN 1 25')
+	sysout('-F ROMAN 1 IV 25')
+	sysout('-F roman 12')
+	sysout('-F roman 1 xx')
+	sysout('-F roman x v l')
+	sysout('-F roman 1 iv l')
+
+	sysout('--format-word floating 10.0')
+	sysout('-F floating 1.0 5.1')
+	sysout('-F floating 1.0 2.2 20.5')
+
+	sysout('--format-word arabic 20')
+	sysout('-F arabic 1 9')
+	sysout('-F arabic 1 2 12')
+
+
+	'''
+
+	'''
 	print 'Implementation 0 and 1 test information (same as GNU)------------------------- \n'
 	is_sameGNU("3 5")
 	is_sameGNU("5")
@@ -89,11 +139,7 @@ if __name__ == '__main__':
 	test_case("--pad '\t' -10 10 20","-10\n\t\t0\n\t10\n\t20\n")
 	test_case("--pad ' ' 0 5 10.0", " 0\n 5\n10\n")
 
-	"""
-	test = os.popen("python romanNumbers.py X")
-
-	a = test.read()
-	print a 
+	'''
 
 	
 
