@@ -1,0 +1,479 @@
+Script started on Sat 07 Dec 2013 08:08:57 PM PST
+khaosans@ruby:~/Desktop/sequ$ seq[K[K[Kpython sequ.py -n -[K-s'\t\t' t2.txt
+1		one
+2		two
+3		three
+4		dsaf
+5		asdf
+6		adsf
+7		ads
+8		dasfsdf
+9		
+10		dsaf
+11		sdf
+12		adsf
+13		
+14		ads
+15		
+16		dfs
+17		
+18		das
+19		f
+20		ds
+21		af
+22		dsf
+23		
+24		
+25		
+26		fad
+27		sdf
+28		s
+29		dfas
+30		df
+31		sdf
+32		sd
+33		f
+34		fdsa
+35		dsaf
+36		asd
+37		
+38		dsf
+39		dsa
+40		f
+41		dsf
+42		sdf
+43		
+44		hg
+45		fghdd
+46		fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n -s'\t\t' t2.txt[C[C[C[C[C[C[C[C[C[C I I
+I		one
+II		two
+III		three
+IV		dsaf
+V		asdf
+VI		adsf
+VII		ads
+VIII		dasfsdf
+IX		
+X		dsaf
+XI		sdf
+XII		adsf
+XIII		
+XIV		ads
+XV		
+XVI		dfs
+XVII		
+XVIII		das
+XIX		f
+XX		ds
+XXI		af
+XXII		dsf
+XXIII		
+XXIV		
+XXV		
+XXVI		fad
+XXVII		sdf
+XXVIII		s
+XXIX		dfas
+XXX		df
+XXXI		sdf
+XXXII		sd
+XXXIII		f
+XXXIV		fdsa
+XXXV		dsaf
+XXXVI		asd
+XXXVII		
+XXXVIII		dsf
+XXXIX		dsa
+XL		f
+XLI		dsf
+XLII		sdf
+XLIII		
+XLIV		hg
+XLV		fghdd
+XLVI		fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n -s'\t\t' t2.txt I I[K[K[K1 3
+1		one
+4		two
+7		three
+10		dsaf
+13		asdf
+16		adsf
+19		ads
+22		dasfsdf
+25		
+28		dsaf
+31		sdf
+34		adsf
+37		
+40		ads
+43		
+46		dfs
+49		
+52		das
+55		f
+58		ds
+61		af
+64		dsf
+67		
+70		
+73		
+76		fad
+79		sdf
+82		s
+85		dfas
+88		df
+91		sdf
+94		sd
+97		f
+100		fdsa
+103		dsaf
+106		asd
+109		
+112		dsf
+115		dsa
+118		f
+121		dsf
+124		sdf
+127		
+130		hg
+133		fghdd
+136		fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n -s'\t\t' t2.txt 1 3[K[K[K3.0 3.4
+3.0		one
+6.4		two
+9.8		three
+13.2		dsaf
+16.6		asdf
+20.0		adsf
+23.4		ads
+26.8		dasfsdf
+30.2		
+33.6		dsaf
+37.0		sdf
+40.4		adsf
+43.8		
+47.2		ads
+50.6		
+54.0		dfs
+57.4		
+60.8		das
+64.2		f
+67.6		ds
+71.0		af
+74.4		dsf
+77.8		
+81.2		
+84.6		
+88.0		fad
+91.4		sdf
+94.8		s
+98.2		dfas
+101.6		df
+105.0		sdf
+108.4		sd
+111.8		f
+115.2		fdsa
+118.6		dsaf
+122.0		asd
+125.4		
+128.8		dsf
+132.2		dsa
+135.6		f
+139.0		dsf
+142.4		sdf
+145.8		
+149.2		hg
+152.6		fghdd
+156.0		fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n -s'\t\t' t2.txt 3.0 3.4[1@f[1@l[1@o[1@a[1@t[1@i[1@n[1@g -s'\t\t' t2.txt 3.0 3.4 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+3.0		one
+6.4		two
+9.8		three
+13.2		dsaf
+16.6		asdf
+20.0		adsf
+23.4		ads
+26.8		dasfsdf
+30.2		
+33.6		dsaf
+37.0		sdf
+40.4		adsf
+43.8		
+47.2		ads
+50.6		
+54.0		dfs
+57.4		
+60.8		das
+64.2		f
+67.6		ds
+71.0		af
+74.4		dsf
+77.8		
+81.2		
+84.6		
+88.0		fad
+91.4		sdf
+94.8		s
+98.2		dfas
+101.6		df
+105.0		sdf
+108.4		sd
+111.8		f
+115.2		fdsa
+118.6		dsaf
+122.0		asd
+125.4		
+128.8		dsf
+132.2		dsa
+135.6		f
+139.0		dsf
+142.4		sdf
+145.8		
+149.2		hg
+152.6		fghdd
+156.0		fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n floating -s'\t\t' t2.txt 3.0 3.4 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[9P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cfloating -s'\t\t' t2.txt 3.0 3.4 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpython sequ.py -n floating -s'\t\t' t2.txt 3.0 3.4 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1@R[1@O[1@M[1@A[1@N[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[KI[Ki[KIV 
+IV		one
+V		two
+VI		three
+VII		dsaf
+VIII		asdf
+IX		adsf
+X		ads
+XI		dasfsdf
+XII		
+XIII		dsaf
+XIV		sdf
+XV		adsf
+XVI		
+XVII		ads
+XVIII		
+XIX		dfs
+XX		
+XXI		das
+XXII		f
+XXIII		ds
+XXIV		af
+XXV		dsf
+XXVI		
+XXVII		
+XXVIII		
+XXIX		fad
+XXX		sdf
+XXXI		s
+XXXII		dfas
+XXXIII		df
+XXXIV		sdf
+XXXV		sd
+XXXVI		f
+XXXVII		fdsa
+XXXVIII		dsaf
+XXXIX		asd
+XL		
+XLI		dsf
+XLII		dsa
+XLIII		f
+XLIV		dsf
+XLV		sdf
+XLVI		
+XLVII		hg
+XLVIII		fghdd
+XLIX		fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n ROMAN -s'\t\t' t2.txt IV [K[K[KV III
+V		one
+VIII		two
+XI		three
+XIV		dsaf
+XVII		asdf
+XX		adsf
+XXIII		ads
+XXVI		dasfsdf
+XXIX		
+XXXII		dsaf
+XXXV		sdf
+XXXVIII		adsf
+XLI		
+XLIV		ads
+XLVII		
+L		dfs
+LIII		
+LVI		das
+LIX		f
+LXII		ds
+LXV		af
+LXVIII		dsf
+LXXI		
+LXXIV		
+LXXVII		
+LXXX		fad
+LXXXIII		sdf
+LXXXVI		s
+LXXXIX		dfas
+XCII		df
+XCV		sdf
+XCVIII		sd
+CI		f
+CIV		fdsa
+CVII		dsaf
+CX		asd
+CXIII		
+CXVI		dsf
+CXIX		dsa
+CXXII		f
+CXXV		dsf
+CXXVIII		sdf
+CXXXI		
+CXXXIV		hg
+CXXXVII		fghdd
+CXL		fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n ROMAN -s'\t\t' t2.txt V III[1P[1P[1P[1P[1P[1@a[1@r[1@a[1@b[1@i[1@c[1P[1P[1P[1P[1P[1P[1P[C[1@ [1@a[1@l[1@h[1@p[1@a[1P[1P[1P[1@p[1@h[1@a[C[C[C[C[C[C[C[C[1@\[1@t[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K
+a			one
+b			two
+c			three
+d			dsaf
+e			asdf
+f			adsf
+g			ads
+h			dasfsdf
+i			
+j			dsaf
+k			sdf
+l			adsf
+m			
+n			ads
+o			
+p			dfs
+q			
+r			das
+s			f
+t			ds
+u			af
+v			dsf
+w			
+x			
+y			
+z			fad
+a			sdf
+b			s
+c			dfas
+d			df
+e			sdf
+f			sd
+g			f
+h			fdsa
+i			dsaf
+j			asd
+k			
+l			dsf
+m			dsa
+n			f
+o			dsf
+p			sdf
+q			
+r			hg
+s			fghdd
+t			fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n alpha -s'\t\t\t' t2.txt c p
+c			one
+s			two
+h			three
+x			dsaf
+m			asdf
+b			adsf
+r			ads
+g			dasfsdf
+w			
+l			dsaf
+a			sdf
+q			adsf
+f			
+v			ads
+k			
+a			dfs
+q			
+f			das
+v			f
+k			ds
+a			af
+q			dsf
+f			
+v			
+k			
+a			fad
+q			sdf
+f			s
+v			dfas
+k			df
+a			sdf
+q			sd
+f			f
+v			fdsa
+k			dsaf
+a			asd
+q			
+f			dsf
+v			dsa
+k			f
+a			dsf
+q			sdf
+f			
+v			hg
+k			fghdd
+a			fgh
+khaosans@ruby:~/Desktop/sequ$ python sequ.py -n alpha -s'\t\t\t' t2.txt c p[1P[1P[1P[1P[1P[1@A[1@L[1@P[1@H[1@A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P pD p[C[C[KF
+D			one
+J			two
+P			three
+V			dsaf
+A			asdf
+G			adsf
+M			ads
+S			dasfsdf
+Y			
+D			dsaf
+J			sdf
+P			adsf
+V			
+A			ads
+G			
+M			dfs
+S			
+Y			das
+D			f
+J			ds
+P			af
+V			dsf
+A			
+G			
+M			
+S			fad
+Y			sdf
+D			s
+J			dfas
+P			df
+V			sdf
+A			sd
+G			f
+M			fdsa
+S			dsaf
+Y			asd
+D			
+J			dsf
+P			dsa
+V			f
+A			dsf
+G			sdf
+M			
+S			hg
+Y			fghdd
+D			fgh
+khaosans@ruby:~/Desktop/sequ$ exit
+exit
+
+Script done on Sat 07 Dec 2013 08:11:55 PM PST

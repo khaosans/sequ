@@ -151,4 +151,10 @@ Test Cases:
 	I did try to pseudo code this part but just found that brute force was the best way for me to resolve 
 	this issues.
 
-	Test File Name: testCL3andCL4.txt testHW5output.txt
+	Test File Name: 
+
+		1)testHW5outputV2.txt
+		2)testHW5backslashEscapes.txt
+
+
+
