@@ -1,0 +1,2500 @@
+Script started on Sat 07 Dec 2013 05:55:43 PM PST
+khaosans@rita:~/Desktop/sequ$ exitpython tests.py script outputHW4.txt[4Ppython tests.py 
+python sequ.py i v
+i
+ii
+iii
+iv
+v
+python sequ.py 1 V x
+i
+vi
+python sequ.py I v 10
+1
+6
+python sequ.py 1 2 12.0
+1.0
+3.0
+5.0
+7.0
+9.0
+11.0
+python sequ.py 1.0 V 45.0
+1.0
+6.0
+11.0
+16.0
+21.0
+26.0
+31.0
+36.0
+41.0
+python sequ.py 1 vii XX
+I
+VIII
+XV
+python sequ.py -F roman xx
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+ix
+x
+xi
+xii
+xiii
+xiv
+xv
+xvi
+xvii
+xviii
+xix
+xx
+python sequ.py --format-word ROMAN XX
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+python sequ.py -F roman i v xx
+i
+vi
+xi
+xvi
+python sequ.py --format-word alpha a z
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+python sequ.py -F ALPHA P
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+python sequ.py -F ALPHA P K
+python sequ.py -F ALPHA K P
+K
+L
+M
+N
+O
+P
+python sequ.py -F ALPHA A B Z
+A
+C
+E
+G
+I
+K
+M
+O
+Q
+S
+U
+W
+Y
+python sequ.py -F alpha P
+status code 1
+python sequ.py -F alpha k
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+python sequ.py -F alpha p k
+python sequ.py -F alpha k p
+k
+l
+m
+n
+o
+p
+python sequ.py -F alpha a n z
+a
+o
+python sequ.py --format-word ROMAN
+status code 1
+python sequ.py --format-word ROMAN XX
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+python sequ.py -F ROMAN II XXX
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+XXI
+XXII
+XXIII
+XXIV
+XXV
+XXVI
+XXVII
+XXVIII
+XXIX
+XXX
+python sequ.py -F ROMAN II IV L
+II
+VI
+X
+XIV
+XVIII
+XXII
+XXVI
+XXX
+XXXIV
+XXXVIII
+XLII
+XLVI
+L
+python sequ.py -F ROMAN 20
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+python sequ.py -F ROMAN 1 25
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+XXI
+XXII
+XXIII
+XXIV
+XXV
+python sequ.py -F ROMAN 1 IV 25
+I
+V
+IX
+XIII
+XVII
+XXI
+XXV
+python sequ.py -F roman 12
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+ix
+x
+xi
+xii
+python sequ.py -F roman 1 xx
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+ix
+x
+xi
+xii
+xiii
+xiv
+xv
+xvi
+xvii
+xviii
+xix
+xx
+python sequ.py -F roman x v l
+x
+xv
+xx
+xxv
+xxx
+xxxv
+xl
+xlv
+l
+python sequ.py -F roman 1 iv l
+i
+v
+ix
+xiii
+xvii
+xxi
+xxv
+xxix
+xxxiii
+xxxvii
+xli
+xlv
+xlix
+python sequ.py --format-word floating 10.0
+1.0
+2.0
+3.0
+4.0
+5.0
+6.0
+7.0
+8.0
+9.0
+10.0
+python sequ.py -F floating 1.0 5.1
+1.0
+2.0
+3.0
+4.0
+5.0
+python sequ.py -F floating 1.0 2.2 20.5
+1.0
+3.2
+5.4
+7.6
+9.8
+12.0
+14.2
+16.4
+18.6
+python sequ.py --format-word arabic 20
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+python sequ.py -F arabic 1 9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+python sequ.py -F arabic 1 2 12
+1
+3
+5
+7
+9
+11
+python sequ.py -n t2.txt
+1 one
+2 two
+3 three
+4 dsaf
+5 asdf
+6 adsf
+7 ads
+8 dasfsdf
+9 
+10 dsaf
+11 sdf
+12 adsf
+13 
+14 ads
+15 
+16 dfs
+17 
+18 das
+19 f
+20 ds
+21 af
+22 dsf
+23 
+24 
+25 
+26 fad
+27 sdf
+28 s
+29 dfas
+30 df
+31 sdf
+32 sd
+33 f
+34 fdsa
+35 dsaf
+36 asd
+37 
+38 dsf
+39 dsa
+40 f
+41 dsf
+42 sdf
+43 
+44 hg
+45 fghdd
+46 fgh
+python sequ.py -n t2.txt i
+i one
+ii two
+iii three
+iv dsaf
+v asdf
+vi adsf
+vii ads
+viii dasfsdf
+ix 
+x dsaf
+xi sdf
+xii adsf
+xiii 
+xiv ads
+xv 
+xvi dfs
+xvii 
+xviii das
+xix f
+xx ds
+xxi af
+xxii dsf
+xxiii 
+xxiv 
+xxv 
+xxvi fad
+xxvii sdf
+xxviii s
+xxix dfas
+xxx df
+xxxi sdf
+xxxii sd
+xxxiii f
+xxxiv fdsa
+xxxv dsaf
+xxxvi asd
+xxxvii 
+xxxviii dsf
+xxxix dsa
+xl f
+xli dsf
+xlii sdf
+xliii 
+xliv hg
+xlv fghdd
+xlvi fgh
+python sequ.py -n t2.txt I II
+I one
+III two
+V three
+VII dsaf
+IX asdf
+XI adsf
+XIII ads
+XV dasfsdf
+XVII 
+XIX dsaf
+XXI sdf
+XXIII adsf
+XXV 
+XXVII ads
+XXIX 
+XXXI dfs
+XXXIII 
+XXXV das
+XXXVII f
+XXXIX ds
+XLI af
+XLIII dsf
+XLV 
+XLVII 
+XLIX 
+LI fad
+LIII sdf
+LV s
+LVII dfas
+LIX df
+LXI sdf
+LXIII sd
+LXV f
+LXVII fdsa
+LXIX dsaf
+LXXI asd
+LXXIII 
+LXXV dsf
+LXXVII dsa
+LXXIX f
+LXXXI dsf
+LXXXIII sdf
+LXXXV 
+LXXXVII hg
+LXXXIX fghdd
+XCI fgh
+python sequ.py -n t2.txt 5 10
+5 one
+15 two
+25 three
+35 dsaf
+45 asdf
+55 adsf
+65 ads
+75 dasfsdf
+85 
+95 dsaf
+105 sdf
+115 adsf
+125 
+135 ads
+145 
+155 dfs
+165 
+175 das
+185 f
+195 ds
+205 af
+215 dsf
+225 
+235 
+245 
+255 fad
+265 sdf
+275 s
+285 dfas
+295 df
+305 sdf
+315 sd
+325 f
+335 fdsa
+345 dsaf
+355 asd
+365 
+375 dsf
+385 dsa
+395 f
+405 dsf
+415 sdf
+425 
+435 hg
+445 fghdd
+455 fgh
+python sequ.py --number--lines test.txt 2.0
+status code 1
+python sequ.py -n -s*** t2.txt
+1***one
+2***two
+3***three
+4***dsaf
+5***asdf
+6***adsf
+7***ads
+8***dasfsdf
+9***
+10***dsaf
+11***sdf
+12***adsf
+13***
+14***ads
+15***
+16***dfs
+17***
+18***das
+19***f
+20***ds
+21***af
+22***dsf
+23***
+24***
+25***
+26***fad
+27***sdf
+28***s
+29***dfas
+30***df
+31***sdf
+32***sd
+33***f
+34***fdsa
+35***dsaf
+36***asd
+37***
+38***dsf
+39***dsa
+40***f
+41***dsf
+42***sdf
+43***
+44***hg
+45***fghdd
+46***fgh
+python sequ.py -n -s** t2.txt
+1**one
+2**two
+3**three
+4**dsaf
+5**asdf
+6**adsf
+7**ads
+8**dasfsdf
+9**
+10**dsaf
+11**sdf
+12**adsf
+13**
+14**ads
+15**
+16**dfs
+17**
+18**das
+19**f
+20**ds
+21**af
+22**dsf
+23**
+24**
+25**
+26**fad
+27**sdf
+28**s
+29**dfas
+30**df
+31**sdf
+32**sd
+33**f
+34**fdsa
+35**dsaf
+36**asd
+37**
+38**dsf
+39**dsa
+40**f
+41**dsf
+42**sdf
+43**
+44**hg
+45**fghdd
+46**fgh
+python sequ.py -n -s** t2.txt
+1**one
+2**two
+3**three
+4**dsaf
+5**asdf
+6**adsf
+7**ads
+8**dasfsdf
+9**
+10**dsaf
+11**sdf
+12**adsf
+13**
+14**ads
+15**
+16**dfs
+17**
+18**das
+19**f
+20**ds
+21**af
+22**dsf
+23**
+24**
+25**
+26**fad
+27**sdf
+28**s
+29**dfas
+30**df
+31**sdf
+32**sd
+33**f
+34**fdsa
+35**dsaf
+36**asd
+37**
+38**dsf
+39**dsa
+40**f
+41**dsf
+42**sdf
+43**
+44**hg
+45**fghdd
+46**fgh
+python sequ.py -n -s* test.txt 10
+10*adfa
+11*asdfa
+12*dfas
+13*adsf
+14*adsf
+15*testing
+16*tesdad
+17*sadfsd
+18*Chivity check
+19*Microphone
+20*check
+21*mic check
+22*one
+23*two
+24*mic check 1 2
+25*adsf
+26*adsf
+27*adsf
+28*adsf
+29*adsf
+30*adsfadsf
+31*adsfdasd
+32*adf
+33*adsfasd
+34*adsf
+35*adsf
+36*adsf
+37*adsf
+38*adfs
+python sequ.py -n -s* test.txt 1 ii
+status code 1
+python sequ.py -n -s** test.txt i
+i**adfa
+ii**asdfa
+iii**dfas
+iv**adsf
+v**adsf
+vi**testing
+vii**tesdad
+viii**sadfsd
+ix**Chivity check
+x**Microphone
+xi**check
+xii**mic check
+xiii**one
+xiv**two
+xv**mic check 1 2
+xvi**adsf
+xvii**adsf
+xviii**adsf
+xix**adsf
+xx**adsf
+xxi**adsfadsf
+xxii**adsfdasd
+xxiii**adf
+xxiv**adsfasd
+xxv**adsf
+xxvi**adsf
+xxvii**adsf
+xxviii**adsf
+xxix**adfs
+python sequ.py -n -s** test.txt I I
+I**adfa
+II**asdfa
+III**dfas
+IV**adsf
+V**adsf
+VI**testing
+VII**tesdad
+VIII**sadfsd
+IX**Chivity check
+X**Microphone
+XI**check
+XII**mic check
+XIII**one
+XIV**two
+XV**mic check 1 2
+XVI**adsf
+XVII**adsf
+XVIII**adsf
+XIX**adsf
+XX**adsf
+XXI**adsfadsf
+XXII**adsfdasd
+XXIII**adf
+XXIV**adsfasd
+XXV**adsf
+XXVI**adsf
+XXVII**adsf
+XXVIII**adsf
+XXIX**adfs
+python sequ.py -n -s** test.txt 1.0
+1.0**adfa
+2.0**asdfa
+3.0**dfas
+4.0**adsf
+5.0**adsf
+6.0**testing
+7.0**tesdad
+8.0**sadfsd
+9.0**Chivity check
+10.0**Microphone
+11.0**check
+12.0**mic check
+13.0**one
+14.0**two
+15.0**mic check 1 2
+16.0**adsf
+17.0**adsf
+18.0**adsf
+19.0**adsf
+20.0**adsf
+21.0**adsfadsf
+22.0**adsfdasd
+23.0**adf
+24.0**adsfasd
+25.0**adsf
+26.0**adsf
+27.0**adsf
+28.0**adsf
+29.0**adfs
+python sequ.py -n -s** t2.txt i
+i**one
+ii**two
+iii**three
+iv**dsaf
+v**asdf
+vi**adsf
+vii**ads
+viii**dasfsdf
+ix**
+x**dsaf
+xi**sdf
+xii**adsf
+xiii**
+xiv**ads
+xv**
+xvi**dfs
+xvii**
+xviii**das
+xix**f
+xx**ds
+xxi**af
+xxii**dsf
+xxiii**
+xxiv**
+xxv**
+xxvi**fad
+xxvii**sdf
+xxviii**s
+xxix**dfas
+xxx**df
+xxxi**sdf
+xxxii**sd
+xxxiii**f
+xxxiv**fdsa
+xxxv**dsaf
+xxxvi**asd
+xxxvii**
+xxxviii**dsf
+xxxix**dsa
+xl**f
+xli**dsf
+xlii**sdf
+xliii**
+xliv**hg
+xlv**fghdd
+xlvi**fgh
+python sequ.py -n -s** test.txt i ii
+i**adfa
+iii**asdfa
+v**dfas
+vii**adsf
+ix**adsf
+xi**testing
+xiii**tesdad
+xv**sadfsd
+xvii**Chivity check
+xix**Microphone
+xxi**check
+xxiii**mic check
+xxv**one
+xxvii**two
+xxix**mic check 1 2
+xxxi**adsf
+xxxiii**adsf
+xxxv**adsf
+xxxvii**adsf
+xxxix**adsf
+xli**adsfadsf
+xliii**adsfdasd
+xlv**adf
+xlvii**adsfasd
+xlix**adsf
+li**adsf
+liii**adsf
+lv**adsf
+lvii**adfs
+python sequ.py -n arabic test.txt
+1 adfa
+2 asdfa
+3 dfas
+4 adsf
+5 adsf
+6 testing
+7 tesdad
+8 sadfsd
+9 Chivity check
+10 Microphone
+11 check
+12 mic check
+13 one
+14 two
+15 mic check 1 2
+16 adsf
+17 adsf
+18 adsf
+19 adsf
+20 adsf
+21 adsfadsf
+22 adsfdasd
+23 adf
+24 adsfasd
+25 adsf
+26 adsf
+27 adsf
+28 adsf
+29 adfs
+python sequ.py -n arabic t2.txt 10
+10 one
+11 two
+12 three
+13 dsaf
+14 asdf
+15 adsf
+16 ads
+17 dasfsdf
+18 
+19 dsaf
+20 sdf
+21 adsf
+22 
+23 ads
+24 
+25 dfs
+26 
+27 das
+28 f
+29 ds
+30 af
+31 dsf
+32 
+33 
+34 
+35 fad
+36 sdf
+37 s
+38 dfas
+39 df
+40 sdf
+41 sd
+42 f
+43 fdsa
+44 dsaf
+45 asd
+46 
+47 dsf
+48 dsa
+49 f
+50 dsf
+51 sdf
+52 
+53 hg
+54 fghdd
+55 fgh
+python sequ.py -n arabic t2.txt 20 5
+20 one
+25 two
+30 three
+35 dsaf
+40 asdf
+45 adsf
+50 ads
+55 dasfsdf
+60 
+65 dsaf
+70 sdf
+75 adsf
+80 
+85 ads
+90 
+95 dfs
+100 
+105 das
+110 f
+115 ds
+120 af
+125 dsf
+130 
+135 
+140 
+145 fad
+150 sdf
+155 s
+160 dfas
+165 df
+170 sdf
+175 sd
+180 f
+185 fdsa
+190 dsaf
+195 asd
+200 
+205 dsf
+210 dsa
+215 f
+220 dsf
+225 sdf
+230 
+235 hg
+240 fghdd
+245 fgh
+python sequ.py -n arabic -s** t2.txt
+1**one
+2**two
+3**three
+4**dsaf
+5**asdf
+6**adsf
+7**ads
+8**dasfsdf
+9**
+10**dsaf
+11**sdf
+12**adsf
+13**
+14**ads
+15**
+16**dfs
+17**
+18**das
+19**f
+20**ds
+21**af
+22**dsf
+23**
+24**
+25**
+26**fad
+27**sdf
+28**s
+29**dfas
+30**df
+31**sdf
+32**sd
+33**f
+34**fdsa
+35**dsaf
+36**asd
+37**
+38**dsf
+39**dsa
+40**f
+41**dsf
+42**sdf
+43**
+44**hg
+45**fghdd
+46**fgh
+python sequ.py -n arabic -s** t2.txt 5
+5**one
+6**two
+7**three
+8**dsaf
+9**asdf
+10**adsf
+11**ads
+12**dasfsdf
+13**
+14**dsaf
+15**sdf
+16**adsf
+17**
+18**ads
+19**
+20**dfs
+21**
+22**das
+23**f
+24**ds
+25**af
+26**dsf
+27**
+28**
+29**
+30**fad
+31**sdf
+32**s
+33**dfas
+34**df
+35**sdf
+36**sd
+37**f
+38**fdsa
+39**dsaf
+40**asd
+41**
+42**dsf
+43**dsa
+44**f
+45**dsf
+46**sdf
+47**
+48**hg
+49**fghdd
+50**fgh
+python sequ.py -n arabic -s** t2.txt 2 6
+2**one
+8**two
+14**three
+20**dsaf
+26**asdf
+32**adsf
+38**ads
+44**dasfsdf
+50**
+56**dsaf
+62**sdf
+68**adsf
+74**
+80**ads
+86**
+92**dfs
+98**
+104**das
+110**f
+116**ds
+122**af
+128**dsf
+134**
+140**
+146**
+152**fad
+158**sdf
+164**s
+170**dfas
+176**df
+182**sdf
+188**sd
+194**f
+200**fdsa
+206**dsaf
+212**asd
+218**
+224**dsf
+230**dsa
+236**f
+242**dsf
+248**sdf
+254**
+260**hg
+266**fghdd
+272**fgh
+python sequ.py -n arabic -s** t2.txt 2 5 5
+status code 1
+python sequ.py -n floating test.txt
+1.0 adfa
+2.0 asdfa
+3.0 dfas
+4.0 adsf
+5.0 adsf
+6.0 testing
+7.0 tesdad
+8.0 sadfsd
+9.0 Chivity check
+10.0 Microphone
+11.0 check
+12.0 mic check
+13.0 one
+14.0 two
+15.0 mic check 1 2
+16.0 adsf
+17.0 adsf
+18.0 adsf
+19.0 adsf
+20.0 adsf
+21.0 adsfadsf
+22.0 adsfdasd
+23.0 adf
+24.0 adsfasd
+25.0 adsf
+26.0 adsf
+27.0 adsf
+28.0 adsf
+29.0 adfs
+python sequ.py -n floating t2.txt 10.0
+10.0 one
+11.0 two
+12.0 three
+13.0 dsaf
+14.0 asdf
+15.0 adsf
+16.0 ads
+17.0 dasfsdf
+18.0 
+19.0 dsaf
+20.0 sdf
+21.0 adsf
+22.0 
+23.0 ads
+24.0 
+25.0 dfs
+26.0 
+27.0 das
+28.0 f
+29.0 ds
+30.0 af
+31.0 dsf
+32.0 
+33.0 
+34.0 
+35.0 fad
+36.0 sdf
+37.0 s
+38.0 dfas
+39.0 df
+40.0 sdf
+41.0 sd
+42.0 f
+43.0 fdsa
+44.0 dsaf
+45.0 asd
+46.0 
+47.0 dsf
+48.0 dsa
+49.0 f
+50.0 dsf
+51.0 sdf
+52.0 
+53.0 hg
+54.0 fghdd
+55.0 fgh
+python sequ.py -n floating t2.txt 20.0 5.0
+20.0 one
+25.0 two
+30.0 three
+35.0 dsaf
+40.0 asdf
+45.0 adsf
+50.0 ads
+55.0 dasfsdf
+60.0 
+65.0 dsaf
+70.0 sdf
+75.0 adsf
+80.0 
+85.0 ads
+90.0 
+95.0 dfs
+100.0 
+105.0 das
+110.0 f
+115.0 ds
+120.0 af
+125.0 dsf
+130.0 
+135.0 
+140.0 
+145.0 fad
+150.0 sdf
+155.0 s
+160.0 dfas
+165.0 df
+170.0 sdf
+175.0 sd
+180.0 f
+185.0 fdsa
+190.0 dsaf
+195.0 asd
+200.0 
+205.0 dsf
+210.0 dsa
+215.0 f
+220.0 dsf
+225.0 sdf
+230.0 
+235.0 hg
+240.0 fghdd
+245.0 fgh
+python sequ.py -n floating -s** t2.txt
+1.0**one
+2.0**two
+3.0**three
+4.0**dsaf
+5.0**asdf
+6.0**adsf
+7.0**ads
+8.0**dasfsdf
+9.0**
+10.0**dsaf
+11.0**sdf
+12.0**adsf
+13.0**
+14.0**ads
+15.0**
+16.0**dfs
+17.0**
+18.0**das
+19.0**f
+20.0**ds
+21.0**af
+22.0**dsf
+23.0**
+24.0**
+25.0**
+26.0**fad
+27.0**sdf
+28.0**s
+29.0**dfas
+30.0**df
+31.0**sdf
+32.0**sd
+33.0**f
+34.0**fdsa
+35.0**dsaf
+36.0**asd
+37.0**
+38.0**dsf
+39.0**dsa
+40.0**f
+41.0**dsf
+42.0**sdf
+43.0**
+44.0**hg
+45.0**fghdd
+46.0**fgh
+python sequ.py -n floating -s** t2.txt 5.0
+5.0**one
+6.0**two
+7.0**three
+8.0**dsaf
+9.0**asdf
+10.0**adsf
+11.0**ads
+12.0**dasfsdf
+13.0**
+14.0**dsaf
+15.0**sdf
+16.0**adsf
+17.0**
+18.0**ads
+19.0**
+20.0**dfs
+21.0**
+22.0**das
+23.0**f
+24.0**ds
+25.0**af
+26.0**dsf
+27.0**
+28.0**
+29.0**
+30.0**fad
+31.0**sdf
+32.0**s
+33.0**dfas
+34.0**df
+35.0**sdf
+36.0**sd
+37.0**f
+38.0**fdsa
+39.0**dsaf
+40.0**asd
+41.0**
+42.0**dsf
+43.0**dsa
+44.0**f
+45.0**dsf
+46.0**sdf
+47.0**
+48.0**hg
+49.0**fghdd
+50.0**fgh
+python sequ.py -n floating -s** t2.txt 2.1 6.2
+2.1**one
+8.3**two
+14.5**three
+20.7**dsaf
+26.9**asdf
+33.1**adsf
+39.3**ads
+45.5**dasfsdf
+51.7**
+57.9**dsaf
+64.1**sdf
+70.3**adsf
+76.5**
+82.7**ads
+88.9**
+95.1**dfs
+101.3**
+107.5**das
+113.7**f
+119.9**ds
+126.1**af
+132.3**dsf
+138.5**
+144.7**
+150.9**
+157.1**fad
+163.3**sdf
+169.5**s
+175.7**dfas
+181.9**df
+188.1**sdf
+194.3**sd
+200.5**f
+206.7**fdsa
+212.9**dsaf
+219.1**asd
+225.3**
+231.5**dsf
+237.7**dsa
+243.9**f
+250.1**dsf
+256.3**sdf
+262.5**
+268.7**hg
+274.9**fghdd
+281.1**fgh
+python sequ.py -n floating -s** t2.txt 2.0 5.1 5.2
+status code 1
+python sequ.py -n ROMAN test.txt
+I adfa
+II asdfa
+III dfas
+IV adsf
+V adsf
+VI testing
+VII tesdad
+VIII sadfsd
+IX Chivity check
+X Microphone
+XI check
+XII mic check
+XIII one
+XIV two
+XV mic check 1 2
+XVI adsf
+XVII adsf
+XVIII adsf
+XIX adsf
+XX adsf
+XXI adsfadsf
+XXII adsfdasd
+XXIII adf
+XXIV adsfasd
+XXV adsf
+XXVI adsf
+XXVII adsf
+XXVIII adsf
+XXIX adfs
+python sequ.py -n ROMAN t2.txt XX
+XX one
+XXI two
+XXII three
+XXIII dsaf
+XXIV asdf
+XXV adsf
+XXVI ads
+XXVII dasfsdf
+XXVIII 
+XXIX dsaf
+XXX sdf
+XXXI adsf
+XXXII 
+XXXIII ads
+XXXIV 
+XXXV dfs
+XXXVI 
+XXXVII das
+XXXVIII f
+XXXIX ds
+XL af
+XLI dsf
+XLII 
+XLIII 
+XLIV 
+XLV fad
+XLVI sdf
+XLVII s
+XLVIII dfas
+XLIX df
+L sdf
+LI sd
+LII f
+LIII fdsa
+LIV dsaf
+LV asd
+LVI 
+LVII dsf
+LVIII dsa
+LIX f
+LX dsf
+LXI sdf
+LXII 
+LXIII hg
+LXIV fghdd
+LXV fgh
+python sequ.py -n ROMAN t2.txt XX V
+XX one
+XXV two
+XXX three
+XXXV dsaf
+XL asdf
+XLV adsf
+L ads
+LV dasfsdf
+LX 
+LXV dsaf
+LXX sdf
+LXXV adsf
+LXXX 
+LXXXV ads
+XC 
+XCV dfs
+C 
+CV das
+CX f
+CXV ds
+CXX af
+CXXV dsf
+CXXX 
+CXXXV 
+CXL 
+CXLV fad
+CL sdf
+CLV s
+CLX dfas
+CLXV df
+CLXX sdf
+CLXXV sd
+CLXXX f
+CLXXXV fdsa
+CXC dsaf
+CXCV asd
+CC 
+CCV dsf
+CCX dsa
+CCXV f
+CCXX dsf
+CCXXV sdf
+CCXXX 
+CCXXXV hg
+CCXL fghdd
+CCXLV fgh
+python sequ.py -n ROMAN -s** t2.txt
+I**one
+II**two
+III**three
+IV**dsaf
+V**asdf
+VI**adsf
+VII**ads
+VIII**dasfsdf
+IX**
+X**dsaf
+XI**sdf
+XII**adsf
+XIII**
+XIV**ads
+XV**
+XVI**dfs
+XVII**
+XVIII**das
+XIX**f
+XX**ds
+XXI**af
+XXII**dsf
+XXIII**
+XXIV**
+XXV**
+XXVI**fad
+XXVII**sdf
+XXVIII**s
+XXIX**dfas
+XXX**df
+XXXI**sdf
+XXXII**sd
+XXXIII**f
+XXXIV**fdsa
+XXXV**dsaf
+XXXVI**asd
+XXXVII**
+XXXVIII**dsf
+XXXIX**dsa
+XL**f
+XLI**dsf
+XLII**sdf
+XLIII**
+XLIV**hg
+XLV**fghdd
+XLVI**fgh
+python sequ.py -n ROMAN -s** t2.txt VI
+VI**one
+VII**two
+VIII**three
+IX**dsaf
+X**asdf
+XI**adsf
+XII**ads
+XIII**dasfsdf
+XIV**
+XV**dsaf
+XVI**sdf
+XVII**adsf
+XVIII**
+XIX**ads
+XX**
+XXI**dfs
+XXII**
+XXIII**das
+XXIV**f
+XXV**ds
+XXVI**af
+XXVII**dsf
+XXVIII**
+XXIX**
+XXX**
+XXXI**fad
+XXXII**sdf
+XXXIII**s
+XXXIV**dfas
+XXXV**df
+XXXVI**sdf
+XXXVII**sd
+XXXVIII**f
+XXXIX**fdsa
+XL**dsaf
+XLI**asd
+XLII**
+XLIII**dsf
+XLIV**dsa
+XLV**f
+XLVI**dsf
+XLVII**sdf
+XLVIII**
+XLIX**hg
+L**fghdd
+LI**fgh
+python sequ.py -n floating -s** t2.txt V II
+python sequ.py -n roman test.txt
+i adfa
+ii asdfa
+iii dfas
+iv adsf
+v adsf
+vi testing
+vii tesdad
+viii sadfsd
+ix Chivity check
+x Microphone
+xi check
+xii mic check
+xiii one
+xiv two
+xv mic check 1 2
+xvi adsf
+xvii adsf
+xviii adsf
+xix adsf
+xx adsf
+xxi adsfadsf
+xxii adsfdasd
+xxiii adf
+xxiv adsfasd
+xxv adsf
+xxvi adsf
+xxvii adsf
+xxviii adsf
+xxix adfs
+python sequ.py -n roman t2.txt xx
+xx one
+xxi two
+xxii three
+xxiii dsaf
+xxiv asdf
+xxv adsf
+xxvi ads
+xxvii dasfsdf
+xxviii 
+xxix dsaf
+xxx sdf
+xxxi adsf
+xxxii 
+xxxiii ads
+xxxiv 
+xxxv dfs
+xxxvi 
+xxxvii das
+xxxviii f
+xxxix ds
+xl af
+xli dsf
+xlii 
+xliii 
+xliv 
+xlv fad
+xlvi sdf
+xlvii s
+xlviii dfas
+xlix df
+l sdf
+li sd
+lii f
+liii fdsa
+liv dsaf
+lv asd
+lvi 
+lvii dsf
+lviii dsa
+lix f
+lx dsf
+lxi sdf
+lxii 
+lxiii hg
+lxiv fghdd
+lxv fgh
+python sequ.py -n roman t2.txt xx x
+xx one
+xxx two
+xl three
+l dsaf
+lx asdf
+lxx adsf
+lxxx ads
+xc dasfsdf
+c 
+cx dsaf
+cxx sdf
+cxxx adsf
+cxl 
+cl ads
+clx 
+clxx dfs
+clxxx 
+cxc das
+cc f
+ccx ds
+ccxx af
+ccxxx dsf
+ccxl 
+ccl 
+cclx 
+cclxx fad
+cclxxx sdf
+ccxc s
+ccc dfas
+cccx df
+cccxx sdf
+cccxxx sd
+cccxl f
+cccl fdsa
+ccclx dsaf
+ccclxx asd
+ccclxxx 
+cccxc dsf
+cd dsa
+cdx f
+cdxx dsf
+cdxxx sdf
+cdxl 
+cdl hg
+cdlx fghdd
+cdlxx fgh
+python sequ.py -n roman -s** t2.txt
+i**one
+ii**two
+iii**three
+iv**dsaf
+v**asdf
+vi**adsf
+vii**ads
+viii**dasfsdf
+ix**
+x**dsaf
+xi**sdf
+xii**adsf
+xiii**
+xiv**ads
+xv**
+xvi**dfs
+xvii**
+xviii**das
+xix**f
+xx**ds
+xxi**af
+xxii**dsf
+xxiii**
+xxiv**
+xxv**
+xxvi**fad
+xxvii**sdf
+xxviii**s
+xxix**dfas
+xxx**df
+xxxi**sdf
+xxxii**sd
+xxxiii**f
+xxxiv**fdsa
+xxxv**dsaf
+xxxvi**asd
+xxxvii**
+xxxviii**dsf
+xxxix**dsa
+xl**f
+xli**dsf
+xlii**sdf
+xliii**
+xliv**hg
+xlv**fghdd
+xlvi**fgh
+python sequ.py -n roman -s** t2.txt vii
+vii**one
+viii**two
+ix**three
+x**dsaf
+xi**asdf
+xii**adsf
+xiii**ads
+xiv**dasfsdf
+xv**
+xvi**dsaf
+xvii**sdf
+xviii**adsf
+xix**
+xx**ads
+xxi**
+xxii**dfs
+xxiii**
+xxiv**das
+xxv**f
+xxvi**ds
+xxvii**af
+xxviii**dsf
+xxix**
+xxx**
+xxxi**
+xxxii**fad
+xxxiii**sdf
+xxxiv**s
+xxxv**dfas
+xxxvi**df
+xxxvii**sdf
+xxxviii**sd
+xxxix**f
+xl**fdsa
+xli**dsaf
+xlii**asd
+xliii**
+xliv**dsf
+xlv**dsa
+xlvi**f
+xlvii**dsf
+xlviii**sdf
+xlix**
+l**hg
+li**fghdd
+lii**fgh
+python sequ.py -n roman -s** t2.txt v ix
+v**one
+xiv**two
+xxiii**three
+xxxii**dsaf
+xli**asdf
+l**adsf
+lix**ads
+lxviii**dasfsdf
+lxxvii**
+lxxxvi**dsaf
+xcv**sdf
+civ**adsf
+cxiii**
+cxxii**ads
+cxxxi**
+cxl**dfs
+cxlix**
+clviii**das
+clxvii**f
+clxxvi**ds
+clxxxv**af
+cxciv**dsf
+cciii**
+ccxii**
+ccxxi**
+ccxxx**fad
+ccxxxix**sdf
+ccxlviii**s
+cclvii**dfas
+cclxvi**df
+cclxxv**sdf
+cclxxxiv**sd
+ccxciii**f
+cccii**fdsa
+cccxi**dsaf
+cccxx**asd
+cccxxix**
+cccxxxviii**dsf
+cccxlvii**dsa
+ccclvi**f
+ccclxv**dsf
+ccclxxiv**sdf
+ccclxxxiii**
+cccxcii**hg
+cdi**fghdd
+cdx**fgh
+python sequ.py -n ALPHA test.txt
+A adfa
+B asdfa
+C dfas
+D adsf
+E adsf
+F testing
+G tesdad
+H sadfsd
+I Chivity check
+J Microphone
+K check
+L mic check
+M one
+N two
+O mic check 1 2
+P adsf
+Q adsf
+R adsf
+S adsf
+T adsf
+U adsfadsf
+V adsfdasd
+W adf
+X adsfasd
+Y adsf
+Z adsf
+A adsf
+B adsf
+C adfs
+python sequ.py -n ALPHA t2.txt A
+A one
+B two
+C three
+D dsaf
+E asdf
+F adsf
+G ads
+H dasfsdf
+I 
+J dsaf
+K sdf
+L adsf
+M 
+N ads
+O 
+P dfs
+Q 
+R das
+S f
+T ds
+U af
+V dsf
+W 
+X 
+Y 
+Z fad
+A sdf
+B s
+C dfas
+D df
+E sdf
+F sd
+G f
+H fdsa
+I dsaf
+J asd
+K 
+L dsf
+M dsa
+N f
+O dsf
+P sdf
+Q 
+R hg
+S fghdd
+T fgh
+python sequ.py -n ALPHA t2.txt C A
+C one
+D two
+E three
+F dsaf
+G asdf
+H adsf
+I ads
+J dasfsdf
+K 
+L dsaf
+M sdf
+N adsf
+O 
+P ads
+Q 
+R dfs
+S 
+T das
+U f
+V ds
+W af
+X dsf
+Y 
+Z 
+A 
+B fad
+C sdf
+D s
+E dfas
+F df
+G sdf
+H sd
+I f
+J fdsa
+K dsaf
+L asd
+M 
+N dsf
+O dsa
+P f
+Q dsf
+R sdf
+S 
+T hg
+U fghdd
+V fgh
+python sequ.py -n ALPHA -s** t2.txt
+A**one
+B**two
+C**three
+D**dsaf
+E**asdf
+F**adsf
+G**ads
+H**dasfsdf
+I**
+J**dsaf
+K**sdf
+L**adsf
+M**
+N**ads
+O**
+P**dfs
+Q**
+R**das
+S**f
+T**ds
+U**af
+V**dsf
+W**
+X**
+Y**
+Z**fad
+A**sdf
+B**s
+C**dfas
+D**df
+E**sdf
+F**sd
+G**f
+H**fdsa
+I**dsaf
+J**asd
+K**
+L**dsf
+M**dsa
+N**f
+O**dsf
+P**sdf
+Q**
+R**hg
+S**fghdd
+T**fgh
+python sequ.py -n ALPHA -s** t2.txt B
+B**one
+C**two
+D**three
+E**dsaf
+F**asdf
+G**adsf
+H**ads
+I**dasfsdf
+J**
+K**dsaf
+L**sdf
+M**adsf
+N**
+O**ads
+P**
+Q**dfs
+R**
+S**das
+T**f
+U**ds
+V**af
+W**dsf
+X**
+Y**
+Z**
+A**fad
+B**sdf
+C**s
+D**dfas
+E**df
+F**sdf
+G**sd
+H**f
+I**fdsa
+J**dsaf
+K**asd
+L**
+M**dsf
+N**dsa
+O**f
+P**dsf
+Q**sdf
+R**
+S**hg
+T**fghdd
+U**fgh
+python sequ.py -n ALPHA -s** t2.txt B K
+B**one
+M**two
+X**three
+H**dsaf
+S**asdf
+C**adsf
+N**ads
+Y**dasfsdf
+I**
+T**dsaf
+D**sdf
+O**adsf
+Z**
+J**ads
+U**
+E**dfs
+P**
+A**das
+L**f
+W**ds
+G**af
+R**dsf
+B**
+M**
+X**
+H**fad
+S**sdf
+C**s
+N**dfas
+Y**df
+I**sdf
+T**sd
+D**f
+O**fdsa
+Z**dsaf
+J**asd
+U**
+E**dsf
+P**dsa
+A**f
+L**dsf
+W**sdf
+G**
+R**hg
+B**fghdd
+M**fgh
+python sequ.py -n alpha test.txt
+a adfa
+b asdfa
+c dfas
+d adsf
+e adsf
+f testing
+g tesdad
+h sadfsd
+i Chivity check
+j Microphone
+k check
+l mic check
+m one
+n two
+o mic check 1 2
+p adsf
+q adsf
+r adsf
+s adsf
+t adsf
+u adsfadsf
+v adsfdasd
+w adf
+x adsfasd
+y adsf
+z adsf
+a adsf
+b adsf
+c adfs
+python sequ.py -n alpha t2.txt a
+a one
+b two
+c three
+d dsaf
+e asdf
+f adsf
+g ads
+h dasfsdf
+i 
+j dsaf
+k sdf
+l adsf
+m 
+n ads
+o 
+p dfs
+q 
+r das
+s f
+t ds
+u af
+v dsf
+w 
+x 
+y 
+z fad
+a sdf
+b s
+c dfas
+d df
+e sdf
+f sd
+g f
+h fdsa
+i dsaf
+j asd
+k 
+l dsf
+m dsa
+n f
+o dsf
+p sdf
+q 
+r hg
+s fghdd
+t fgh
+python sequ.py -n alpha t2.txt c a
+c one
+d two
+e three
+f dsaf
+g asdf
+h adsf
+i ads
+j dasfsdf
+k 
+l dsaf
+m sdf
+n adsf
+o 
+p ads
+q 
+r dfs
+s 
+t das
+u f
+v ds
+w af
+x dsf
+y 
+z 
+a 
+b fad
+c sdf
+d s
+e dfas
+f df
+g sdf
+h sd
+i f
+j fdsa
+k dsaf
+l asd
+m 
+n dsf
+o dsa
+p f
+q dsf
+r sdf
+s 
+t hg
+u fghdd
+v fgh
+python sequ.py -n alpha -s** t2.txt
+a**one
+b**two
+c**three
+d**dsaf
+e**asdf
+f**adsf
+g**ads
+h**dasfsdf
+i**
+j**dsaf
+k**sdf
+l**adsf
+m**
+n**ads
+o**
+p**dfs
+q**
+r**das
+s**f
+t**ds
+u**af
+v**dsf
+w**
+x**
+y**
+z**fad
+a**sdf
+b**s
+c**dfas
+d**df
+e**sdf
+f**sd
+g**f
+h**fdsa
+i**dsaf
+j**asd
+k**
+l**dsf
+m**dsa
+n**f
+o**dsf
+p**sdf
+q**
+r**hg
+s**fghdd
+t**fgh
+python sequ.py -n alpha -s** t2.txt k
+k**one
+l**two
+m**three
+n**dsaf
+o**asdf
+p**adsf
+q**ads
+r**dasfsdf
+s**
+t**dsaf
+u**sdf
+v**adsf
+w**
+x**ads
+y**
+z**dfs
+a**
+b**das
+c**f
+d**ds
+e**af
+f**dsf
+g**
+h**
+i**
+j**fad
+k**sdf
+l**s
+m**dfas
+n**df
+o**sdf
+p**sd
+q**f
+r**fdsa
+s**dsaf
+t**asd
+u**
+v**dsf
+w**dsa
+x**f
+y**dsf
+z**sdf
+a**
+b**hg
+c**fghdd
+d**fgh
+python sequ.py -n alpha -s** t2.txt k k
+k**one
+v**two
+f**three
+q**dsaf
+a**asdf
+l**adsf
+w**ads
+g**dasfsdf
+r**
+b**dsaf
+m**sdf
+x**adsf
+h**
+s**ads
+c**
+n**dfs
+y**
+i**das
+t**f
+d**ds
+o**af
+z**dsf
+j**
+u**
+e**
+p**fad
+a**sdf
+l**s
+w**dfas
+g**df
+r**sdf
+b**sd
+m**f
+x**fdsa
+h**dsaf
+s**asd
+c**
+n**dsf
+y**dsa
+i**f
+t**dsf
+d**sdf
+o**
+z**hg
+j**fghdd
+u**fgh
+khaosans@rita:~/Desktop/sequ$ exit
+exit
+
+Script done on Sat 07 Dec 2013 05:55:53 PM PST

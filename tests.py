@@ -63,11 +63,16 @@ def sysout(testCase):
 
 if __name__ == '__main__':
 
+	
+
+	
 	#Implementation Test for CL 3 
 	sysout('i v')
 	sysout('1 V x')
 	sysout('I v 10')
 	sysout('1 2 12.0')
+	sysout('1.0 V 45.0')
+	sysout('1 vii XX')
 
 
 	sysout('-F roman xx')
@@ -79,6 +84,7 @@ if __name__ == '__main__':
 	sysout('-F ALPHA P K')
 	sysout('-F ALPHA K P')
 	sysout('-F ALPHA A B Z')
+
 	sysout('-F alpha P')
 	sysout('-F alpha k')
 	sysout('-F alpha p k')
@@ -92,6 +98,7 @@ if __name__ == '__main__':
 	sysout('-F ROMAN 20')
 	sysout('-F ROMAN 1 25')
 	sysout('-F ROMAN 1 IV 25')
+
 	sysout('-F roman 12')
 	sysout('-F roman 1 xx')
 	sysout('-F roman x v l')
@@ -104,40 +111,74 @@ if __name__ == '__main__':
 	sysout('--format-word arabic 20')
 	sysout('-F arabic 1 9')
 	sysout('-F arabic 1 2 12')
+	
+	# CL 4 Tests
+	sysout('-n t2.txt')
+	sysout('-n t2.txt i')
+	sysout('-n t2.txt I II')
+	sysout('-n t2.txt 5 10')
+	sysout('--number--lines test.txt clea2.0')
+	sysout('-n -s*** t2.txt')
+	
+	sysout('-n -s** t2.txt')
+	sysout('-n -s** t2.txt')
+	sysout('-n -s* test.txt 10')
+	sysout('-n -s* test.txt 1 ii')  
+	sysout('-n -s** test.txt i')
+	sysout('-n -s** test.txt I I')
+	sysout('-n -s** test.txt 1.0')
+	sysout('-n -s** t2.txt i')
+	sysout('-n -s** test.txt i ii')
 
+	sysout('-n arabic test.txt')
+	sysout('-n arabic t2.txt 10')
+	sysout('-n arabic t2.txt 20 5')
+	sysout('-n arabic -s** t2.txt')
+	sysout('-n arabic -s** t2.txt 5')
+	sysout('-n arabic -s** t2.txt 2 6')
+	sysout('-n arabic -s** t2.txt 2 5 5') #should fail
+	
 
-	'''
-	print 'Implementation 0 and 1 test information (same as GNU)------------------------- \n'
-	is_sameGNU("3 5")
-	is_sameGNU("5")
-	is_sameGNU("-5 2 10")
-	is_sameGNU("-w -5 50 20")
-	is_sameGNU("-w -1 .1 1")
-	is_sameGNU("-5 10 100")
+	sysout('-n floating test.txt')
+	sysout('-n floating t2.txt 10.0')
+	sysout('-n floating t2.txt 20.0 5.0')
+	sysout('-n floating -s** t2.txt')
+	sysout('-n floating -s** t2.txt 5.0')
+	sysout('-n floating -s** t2.txt 2.1 6.2')
+	sysout('-n floating -s** t2.txt 2.0 5.1 5.2') #should fail
+	
 
-	print 'Implementation 2 test information--------------------------------------- \n'
-	test_case("-W TEST","T E S T\n")
-	expect_fail("-W TEST","TEST\n")
-	test_case("-W TEST234 TEST4", "T E S T 2 3 4\nT E S T 4\n")
-	test_case("--words abc","a b c\n")
-	test_case("-P 10"," 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n")
-	expect_fail("-P 10","1 2 3 4 5 6 7 8 9 10")
-	test_case("-P 0 500 1000","   0\n 500\n1000\n")
-	test_case("-P -1000 500 1000","-1000\n -500\n    0\n  500\n 1000\n")
-	expect_fail("-P 0","1")
-	test_case("--pad-spaces -1000 500 1000","-1000\n -500\n    0\n  500\n 1000\n")
-	test_case("--pad-spaces -5 2 1","-5\n-3\n-1\n 1\n")
-	test_case("-P -.1 .5 1","-0.1\n 0.4\n 0.9\n")
-	test_case("--P","status code 1\n")
-	test_case("improper input","status code 1\n")
-	test_case("-p '@' 10", "@1\n@2\n@3\n@4\n@5\n@6\n@7\n@8\n@9\n10\n")
-	test_case("-p '*' 0 100 300","**0\n100\n200\n300\n")
-	test_case("-p improperinput", "status code 1\n")
-	test_case("-p '\n' 3", "1\n2\n3\n")
-	test_case("--pad '\t' -10 10 20","-10\n\t\t0\n\t10\n\t20\n")
-	test_case("--pad ' ' 0 5 10.0", " 0\n 5\n10\n")
+	sysout('-n ROMAN test.txt')
+	sysout('-n ROMAN t2.txt XX')
+	sysout('-n ROMAN t2.txt XX V')
+	sysout('-n ROMAN -s** t2.txt')
+	sysout('-n ROMAN -s** t2.txt VI')
+	sysout('-n floating -s** t2.txt V II')
+	
 
-	'''
+	sysout('-n roman test.txt')
+	sysout('-n roman t2.txt xx')
+	sysout('-n roman t2.txt xx x')
+	sysout('-n roman -s** t2.txt')
+	sysout('-n roman -s** t2.txt vii')
+	sysout('-n roman -s** t2.txt v ix')
+
+	
+	sysout('-n ALPHA test.txt')
+	sysout('-n ALPHA t2.txt A')
+	sysout('-n ALPHA t2.txt C A')
+	sysout('-n ALPHA -s** t2.txt')
+	sysout('-n ALPHA -s** t2.txt B')
+	sysout('-n ALPHA -s** t2.txt B K')
+
+	sysout('-n alpha test.txt')
+	sysout('-n alpha t2.txt a')
+	sysout('-n alpha t2.txt c a')
+	sysout('-n alpha -s** t2.txt')
+	sysout('-n alpha -s** t2.txt k')
+	sysout('-n alpha -s** t2.txt k k')
+
+	
 
 	
 

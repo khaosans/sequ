@@ -6,6 +6,8 @@
 #sequ Compliance Level 0 ***CHECK***TESTED**
 #sequ Compliance Level 1 ***CHECK***TESTED**
 #sequ Compliance Level 2 ***CHECK***TESTED**
+#sequ Compliance Level 3 NEEDS TEST
+#sequ Compliance Level 4 NEEDS TEST
  
 #Library used for system argument 
 from sys import argv;
@@ -982,7 +984,7 @@ def main():
 				if len(argv) == 5 and argv[2] == 'arabic':
 					number_lines('1','1',argv[4],'INTEGER', sepChar)	
 
-				if len(argv) == 5 and argv[3] == 'floating':
+				if len(argv) == 5 and argv[2] == 'floating':
 					number_lines('1.0','1.0',argv[4],'FLOAT', sepChar)
 
 

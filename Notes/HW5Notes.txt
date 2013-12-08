@@ -151,5 +151,4 @@ Test Cases:
 	I did try to pseudo code this part but just found that brute force was the best way for me to resolve 
 	this issues.
 
-	Finally for my test cases please look at my updated test.py file which I will output the and place
-	these on the test output folder. 
+	Test File Name: testCL3andCL4.txt testHW5output.txt
