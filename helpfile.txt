@@ -11,6 +11,8 @@ Print numbers from FIRST to LAST, in steps of INCREMENT.
   -W, --words    take a word and put spaces between each letter
   -p, --pad      Output the sequence with elements padded on the left to be all of equal width
   -P, --pad-spaces         Output the sequence with elements padded with spaces on the left to be all of equal width.
+  -F, --format-word use(ROMAN, roman, ALPHA, alpha, arabic, floating) 	Output the sequence of the argument inputted
+  -n, --number-lines use(ROMAN, roman, ALPHA, alpha, arabic, floating) -s,--seperator(optional) filename 	Output the filename by filtering each line with number line in the format specified. Does not take ending value as that is determined by filename
 
 If FIRST or INCREMENT is omitted, it defaults to 1.  That is, an
 omitted INCREMENT defaults to 1 even when LAST is smaller than FIRST.
